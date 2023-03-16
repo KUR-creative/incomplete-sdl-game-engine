@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DisplayObject">
+    <Position X="14.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ggQAAICEACAAgABAAAgIJAAkgAgAArAJEUAxCGFI4QA=</HashCode>
+      <FileName>DisplayObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DisplayObjectContainer">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAICAAABAAAAQAAAkAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DisplayObjectContainer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DisplayObjectContainerError" Collapsed="true">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAA=</HashCode>
+      <FileName>DisplayObjectContainer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projector">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Projector::WindowDeleter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Projector.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAQAwAAAAAABIAACAABAAgAA=</HashCode>
+      <FileName>Projector.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleSprite">
+    <Position X="17.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SimpleSprite.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sprite">
+    <Position X="8" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Sprite.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSerialBuffer" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAACAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAEAAAAAA=</HashCode>
+      <FileName>testMain.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="hash_key" Collapsed="true">
+    <Position X="10.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadedData" Collapsed="true">
+    <Position X="2" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>FileLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileLoader" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAIAAAAAAAAAAAAAGAAAAAEAAAAAAAAAAAAI=</HashCode>
+      <FileName>FileLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IniSerialBuffer" Collapsed="true">
+    <Position X="12.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAACAAAAAAAAAAAIAIAAAAAAEAQAAAAAAAAAAA=</HashCode>
+      <FileName>IniSerialBuffer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Png" Collapsed="true">
+    <Position X="0.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAEAA=</HashCode>
+      <FileName>PngLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PngLoader">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgAA=</HashCode>
+      <FileName>PngLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Text">
+    <Position X="3" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>TxtLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TxtLoader">
+    <Position X="9.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>TxtLoader.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResLibError" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceLibrary.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceLibrary">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAEAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceLibrary.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceLoadCaller">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAQQAABACBAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceLoadCaller.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Error" Collapsed="true">
+    <Position X="1.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAQAAAAAAAAgAAAAAIAACAAAAAAAAAAA=</HashCode>
+      <FileName>Error.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAACABAAAAABAAAEAQAAgAAAAAAA=</HashCode>
+      <FileName>Singleton.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uncopyable" Collapsed="true">
+    <Position X="12.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAEAA=</HashCode>
+      <FileName>Uncopyable.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>

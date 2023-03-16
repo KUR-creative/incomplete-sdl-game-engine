@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3270B93D-A864-4F95-9B71-7922487DCCD5}</ProjectGuid>
+    <RootNamespace>fileLoaderModule</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\SDL2-2.0.3\extensions\SDL2_ttf-2.0.14\include;C:\boost_1_60_0\boost;C:\SDL2-2.0.3\extensions\SDL_image\SDL2_image-2.0.0%28devel%29\include;C:\google_test\gtest\include;C:\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.3\extensions\SDL2_ttf-2.0.14\lib\x86;C:\boost_1_60_0\stage\lib;C:\SDL2-2.0.3\extensions\SDL_image\SDL2_image-2.0.0%28devel%29\lib\x86;C:\google_test\gtest\Debug;C:\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrtd.lib;msvcrt.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\SDL2-2.0.3\extensions\SDL2_ttf-2.0.14\include;C:\boost_1_60_0\boost;C:\SDL2-2.0.3\extensions\SDL_image\SDL2_image-2.0.0%28devel%29\include;C:\google_test\gtest\include;C:\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.3\extensions\SDL2_ttf-2.0.14\lib\x86;C:\boost_1_60_0\stage\lib;C:\SDL2-2.0.3\extensions\SDL_image\SDL2_image-2.0.0%28devel%29\lib\x86;C:\google_test\gtest\Debug;C:\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrtd.lib;msvcrt.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="DisplayObject.cpp" />
+    <ClCompile Include="DisplayObjectContainer.cpp" />
+    <ClCompile Include="IniSerialBuffer.cpp" />
+    <ClCompile Include="PngLoader.cpp" />
+    <ClCompile Include="Projector.cpp" />
+    <ClCompile Include="ResourceLibrary.cpp" />
+    <ClCompile Include="ResourceLoadCaller.cpp" />
+    <ClCompile Include="SimpleSprite.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="testMain.cpp" />
+    <ClCompile Include="TxtLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DisplayObject.hpp" />
+    <ClInclude Include="DisplayObjectContainer.hpp" />
+    <ClInclude Include="Error.hpp" />
+    <ClInclude Include="FileLoader.hpp" />
+    <ClInclude Include="IniSerialBuffer.hpp" />
+    <ClInclude Include="PngLoader.hpp" />
+    <ClInclude Include="Projector.hpp" />
+    <ClInclude Include="ResourceLibrary.hpp" />
+    <ClInclude Include="ResourceLoadCaller.hpp" />
+    <ClInclude Include="SimpleSprite.hpp" />
+    <ClInclude Include="SimpleText.hpp" />
+    <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="TxtLoader.hpp" />
+    <ClInclude Include="Uncopyable.hpp" />
+    <ClInclude Include="Utilities.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Coding Rule.txt" />
+    <Text Include="help.txt" />
+    <Text Include="NOT_TODO list.txt" />
+    <Text Include="TODO list.txt" />
+    <Text Include="why(연구).txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

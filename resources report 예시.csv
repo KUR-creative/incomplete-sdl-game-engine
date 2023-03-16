@@ -1,0 +1,9 @@
+,,,ref times
+resources,sound,gun.mp3,1
+,,bang.mp3,2
+,,atk.mp3,10
+,png,dice.png,1
+,,man.png,1
+,,effect.png,100
+,txt,history.txt,3
+,,log.txt,2

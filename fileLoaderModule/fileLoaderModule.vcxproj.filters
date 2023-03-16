@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="TEST">
+      <UniqueIdentifier>{98a04a8e-5349-4b32-a7b8-1245743a5fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="아마 버려질듯">
+      <UniqueIdentifier>{c87ede60-18be-43f5-915e-2cafb6deacf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File I/O">
+      <UniqueIdentifier>{f5cade91-19f2-4a55-8a38-6219147fc886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Management">
+      <UniqueIdentifier>{04174283-e6d8-4734-bdd5-ce29e7310935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility Codes">
+      <UniqueIdentifier>{f8d774c3-5197-47de-b6ad-7941e9c918da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File I/O\XXXLoader">
+      <UniqueIdentifier>{c8b71840-ce0c-4d37-bc02-05bf5116defb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>Utility Codes</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleText.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoader.hpp">
+      <Filter>File I/O</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceLibrary.hpp">
+      <Filter>Resource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceLoadCaller.hpp">
+      <Filter>Resource Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.hpp">
+      <Filter>Utility Codes</Filter>
+    </ClInclude>
+    <ClInclude Include="Projector.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniSerialBuffer.hpp">
+      <Filter>File I/O</Filter>
+    </ClInclude>
+    <ClInclude Include="TxtLoader.hpp">
+      <Filter>File I/O\XXXLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="PngLoader.hpp">
+      <Filter>File I/O\XXXLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Uncopyable.hpp">
+      <Filter>Utility Codes</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayObject.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSprite.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.hpp">
+      <Filter>Utility Codes</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayObjectContainer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="testMain.cpp">
+      <Filter>TEST</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceLibrary.cpp">
+      <Filter>Resource Management</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceLoadCaller.cpp">
+      <Filter>Resource Management</Filter>
+    </ClCompile>
+    <ClCompile Include="Projector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IniSerialBuffer.cpp">
+      <Filter>File I/O</Filter>
+    </ClCompile>
+    <ClCompile Include="TxtLoader.cpp">
+      <Filter>File I/O\XXXLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="PngLoader.cpp">
+      <Filter>File I/O\XXXLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayObjectContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO list.txt" />
+    <Text Include="NOT_TODO list.txt" />
+    <Text Include="Coding Rule.txt" />
+    <Text Include="help.txt" />
+    <Text Include="why(연구).txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

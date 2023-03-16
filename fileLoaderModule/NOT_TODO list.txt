@@ -1,0 +1,15 @@
+Projector::renderClear()는 필요없다.
+그것은 프로젝터에 캡슐화된 동작이다. 
+외부에서는 신경 쓸 필요가 없다.
+바깥에서 백버퍼를 지워버릴 수 없게 한다.
+
+DisplayObject의 getter setter: SDL_GetTextureAlphaMod를 절대로 쓰면 안된다.
+SDL_GetTextureAlphaMod를 쓰면, 이전에 렌더링한 DO의 것을 가져올 수 있다.
+DO는 같은 클래스의 객체들은 하나의 텍스쳐를 공유하기 때문에
+반드시 각자의 rgb, alpha를 가져야한다. 
+
+DisplayObjectContainer
+	list<weak_ptr<DisplayObject>> displayList;
+DOC는 절대로 저장소가 아니다!!!!!
+그저 순차/재귀적 렌더링과 재귀적인 DO관리를 위한 객체이다.
+절대 weak_ptr을 다른 것으로 고치려 하지 말라

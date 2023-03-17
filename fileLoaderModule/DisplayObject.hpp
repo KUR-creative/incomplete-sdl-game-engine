@@ -10,13 +10,13 @@ private:
 	shared_ptr<SDL_Texture>		texture;	
 
 	//logical member
-	SDL_Rect	rect;		//°³³äÀû x,y,w,h
-	double		angle;		//°³³äÀû °¢µµ
-	Uint8	alpha;			//°³³äÀû ¾ËÆÄ
-	Uint8	r, g, b;		//°³³äÀû RGB°ª
-	double	ratioW, ratioH;	//°³³äÀû Å©±â ºñÀ²
-	const double	centerRatioW;	//¿øÁ¡À» ¼³Á¤ÇÑ´Ù. 0.5¸é Áß½ÉÀº w/2°¡ µÈ´Ù.
-	const double	centerRatioH;	//¿øÁ¡À» ¼³Á¤ÇÑ´Ù. 0.5¸é Áß½ÉÀº h/2°¡ µÈ´Ù.
+	SDL_Rect	rect;		//ê°œë…ì  x,y,w,h
+	double		angle;		//ê°œë…ì  ê°ë„
+	Uint8	alpha;			//ê°œë…ì  ì•ŒíŒŒ
+	Uint8	r, g, b;		//ê°œë…ì  RGBê°’
+	double	ratioW, ratioH;	//ê°œë…ì  í¬ê¸° ë¹„ìœ¨
+	const double	centerRatioW;	//ì›ì ì„ ì„¤ì •í•œë‹¤. 0.5ë©´ ì¤‘ì‹¬ì€ w/2ê°€ ëœë‹¤.
+	const double	centerRatioH;	//ì›ì ì„ ì„¤ì •í•œë‹¤. 0.5ë©´ ì¤‘ì‹¬ì€ h/2ê°€ ëœë‹¤.
 	
 	//etc..
 	DisplayObject*	parent;
@@ -24,22 +24,22 @@ private:
 	int	textureH;
 
 	//render member
-	SDL_Rect	renderRect;		//renderCopy¿¡ ÇÊ¿äÇÑ x,y,w,h
-	double		renderAngle;	//renderCopy¿¡ ÇÊ¿äÇÑ °¢µµ
-	SDL_Point	renderCenter;	//renderCopy¿¡ ÇÊ¿äÇÑ È¸ÀüÁß½É 
-	Uint8	renderAlpha;				//½ÇÁ¦ ºí·»µù¿ë ¾ËÆÄ
-	Uint8	renderR, renderG, renderB;	//½ÇÁ¦ ºí·»µù¿ë RGB
-	double	renderRatioW, renderRatioH;	//½ÇÁ¦ ·»´õ¸µ ºñÀ²
+	SDL_Rect	renderRect;		//renderCopyì— í•„ìš”í•œ x,y,w,h
+	double		renderAngle;	//renderCopyì— í•„ìš”í•œ ê°ë„
+	SDL_Point	renderCenter;	//renderCopyì— í•„ìš”í•œ íšŒì „ì¤‘ì‹¬ 
+	Uint8	renderAlpha;				//ì‹¤ì œ ë¸”ë Œë”©ìš© ì•ŒíŒŒ
+	Uint8	renderR, renderG, renderB;	//ì‹¤ì œ ë¸”ë Œë”©ìš© RGB
+	double	renderRatioW, renderRatioH;	//ì‹¤ì œ ë Œë”ë§ ë¹„ìœ¨
 	
-	//renderCenter´Â renderRect¿¡ »ó´ëÀûÀÎ °ªÀ» °¡Áú »ÓÀÌ´Ù.
-	//centerForChild´Â Ç¥½Ã°´Ã¼ÀÇ ¿øÁ¡ÀÌ ½ÇÁ¦ ·»´õ¸µµÇ´Â È­¸é»óÀÇ ÁÂÇ¥¸¦ ÀÇ¹ÌÇÑ´Ù.
-	//ÀÚ½Ä¿¡¼­ renderRect.x,y¸¦ È¸Àüº¯È¯ÇÏ¿© ±¸ÇÒ ¶§ ¿øÁ¡ÀÌ µÇ´Â ÁÂÇ¥.
-	//renderOrigin Á¤µµ·Î ÀÌ¸§À» ºÙÀÏ¼öµµ ÀÖ´Ù..
+	//renderCenterëŠ” renderRectì— ìƒëŒ€ì ì¸ ê°’ì„ ê°€ì§ˆ ë¿ì´ë‹¤.
+	//centerForChildëŠ” í‘œì‹œê°ì²´ì˜ ì›ì ì´ ì‹¤ì œ ë Œë”ë§ë˜ëŠ” í™”ë©´ìƒì˜ ì¢Œí‘œë¥¼ ì˜ë¯¸í•œë‹¤.
+	//ìì‹ì—ì„œ renderRect.x,yë¥¼ íšŒì „ë³€í™˜í•˜ì—¬ êµ¬í•  ë•Œ ì›ì ì´ ë˜ëŠ” ì¢Œí‘œ.
+	//renderOrigin ì •ë„ë¡œ ì´ë¦„ì„ ë¶™ì¼ìˆ˜ë„ ìˆë‹¤..
 	SDL_Point	centerForChild;
 
 public:
-	// (w && h) == 0 ÀÌ¸é texÀÇ w,h¸¦ queryÇÑ´Ù.
-	//centerRatioW,H´Â ¿øÁ¡(Áß½É)À» ¼³Á¤ÇÑ´Ù. (0.5, 0.5)¸é ¿øÁ¡Àº (w/2,h/2)°¡ µÈ´Ù.
+	// (w && h) == 0 ì´ë©´ texì˜ w,hë¥¼ queryí•œë‹¤.
+	//centerRatioW,HëŠ” ì›ì (ì¤‘ì‹¬)ì„ ì„¤ì •í•œë‹¤. (0.5, 0.5)ë©´ ì›ì ì€ (w/2,h/2)ê°€ ëœë‹¤.
 	DisplayObject(shared_ptr<SDL_Texture> tex, 
 				  shared_ptr<SDL_Renderer> ren,
 				  double centerRatioW, double centerRatioH,
@@ -49,13 +49,13 @@ public:
 				  Uint8 alpha = 255,
 				  Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255);
 
-	//DisplayObjectContainer::addChild() ¿¡¼­¸¸ È£ÃâÇÏ¶ó.	
+	//DisplayObjectContainer::addChild() ì—ì„œë§Œ í˜¸ì¶œí•˜ë¼.	
 	void resetParent(DisplayObject* obj);
-	//±âº» ±¸Çö Á¤ÀÇµÇ¾îÀÖÀ½
+	//ê¸°ë³¸ êµ¬í˜„ ì •ì˜ë˜ì–´ìˆìŒ
 	virtual void renderCopy() = 0; 
 		
 private:
-	//·»´õ¸µ½Ã È£ÃâµÊ.
+	//ë Œë”ë§ì‹œ í˜¸ì¶œë¨.
 	void resetRenderMember();
 
 public:
@@ -98,6 +98,6 @@ public:
 		b = blue;
 	}
 	
-	//ratioW,H¸¦ ¹Ù²ã¼­ w,h¸¦ ¹Ù²Ù´Â ÇÔ¼öµµ ÀÖÀ¸¸é ÁÁÀ»µí?
+	//ratioW,Hë¥¼ ë°”ê¿”ì„œ w,hë¥¼ ë°”ê¾¸ëŠ” í•¨ìˆ˜ë„ ìˆìœ¼ë©´ ì¢‹ì„ë“¯?
 };
 

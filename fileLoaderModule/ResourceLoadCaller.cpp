@@ -12,57 +12,57 @@ ResourceLoadCaller::ResourceLoadCaller(ResourceLibrary& resLib)
 	:resLib(resLib)
 {
 	initExtensionMap();
-	/* ¶Ç Å×½ºÆ® 
+	/* ë˜ í…ŒìŠ¤íŠ¸ 
 	if(extensionMap["png"]) {
-		std::cout << "¼º°ø: µé¾î°¬´Ù" << '\n';
+		std::cout << "ì„±ê³µ: ë“¤ì–´ê°”ë‹¤" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ: ¾È µé¾î°¨" << '\n';
+		std::cout << "ì‹¤íŒ¨: ì•ˆ ë“¤ì–´ê°" << '\n';
 	}
 
 	if(extensionMap["txt"]) {
-		std::cout << "¼º°ø: µé¾î°¬´Ù" << '\n';
+		std::cout << "ì„±ê³µ: ë“¤ì–´ê°”ë‹¤" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ: ¾È µé¾î°¨" << '\n';
+		std::cout << "ì‹¤íŒ¨: ì•ˆ ë“¤ì–´ê°" << '\n';
 	}
 
-	if(extensionMap["È®ÀåÀÚ¾Æ³à"]) {
-		std::cout << "½ÇÆĞ: µé¾î°¬´Ù" << '\n';
+	if(extensionMap["í™•ì¥ìì•„ë…€"]) {
+		std::cout << "ì‹¤íŒ¨: ë“¤ì–´ê°”ë‹¤" << '\n';
 	} else {
-		std::cout << "¼º°ø: ¾È µé¾î°¨" << '\n';
+		std::cout << "ì„±ê³µ: ì•ˆ ë“¤ì–´ê°" << '\n';
 	}
 	*/
 	
 	insertResources();
-	/*ÀÓ½ÃÀûÀÎ ÇÔ¼ö Å×½ºÆ® 
+	/*ì„ì‹œì ì¸ í•¨ìˆ˜ í…ŒìŠ¤íŠ¸ 
 	std::cout << '\n' << "================================" << '\n';
 	string testNot("not extension");
 	if(getFileExtension(testNot).size() == 0) {
-		std::cout << "¼º°ø!" << '\n';
+		std::cout << "ì„±ê³µ!" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ!" << '\n';
+		std::cout << "ì‹¤íŒ¨!" << '\n';
 	}
 
 	string testNot2("not ext\\ension");
 	if(getFileExtension(testNot2).size() == 0) {
-		std::cout << "¼º°ø!" << '\n';
+		std::cout << "ì„±ê³µ!" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ!" << '\n';
+		std::cout << "ì‹¤íŒ¨!" << '\n';
 	}
 
 	string testYes("ass.tub");
 	string result("tub");
 	if(getFileExtension(testYes) == result) {
-		std::cout << "¼º°ø!" << '\n';
+		std::cout << "ì„±ê³µ!" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ!" << '\n';
+		std::cout << "ì‹¤íŒ¨!" << '\n';
 	}
 
 	string testName("not ext\\ension");
 	string testResult("ension");
 	if(getFileName(testName) == testResult) {
-		std::cout << "¼º°ø!" << '\n';
+		std::cout << "ì„±ê³µ!" << '\n';
 	} else {
-		std::cout << "½ÇÆĞ!" << '\n';
+		std::cout << "ì‹¤íŒ¨!" << '\n';
 	}
 
 	std::cout << '\n' << "================================" << '\n';
@@ -70,8 +70,8 @@ ResourceLoadCaller::ResourceLoadCaller(ResourceLibrary& resLib)
 }
 
 
-//ÀÌ ÇÔ¼ö´Â Áß¿äÇÏ´Ù. ¸®¼Ò½º¸¦ ¿£Áø¿¡¼­ ¾î¶»°Ô ÇØ¼®ÇÒÁö °áÁ¤ÇÑ´Ù.
-//TODO: Áö±İÀº ÀÌ ÇÔ¼ö¸¦ ¹Ù²ã¾ß¸¸ ¶Ç´Ù¸¥ 1:1°ü°èÀÇ Ãß°¡°¡ °¡´ÉÇÑµ¥, ³ªÁß¿¡ ¸®ÆÑÅä¸µÀÌ ÇÊ¿äÇÒ °ÍÀÌ´Ù.
+//ì´ í•¨ìˆ˜ëŠ” ì¤‘ìš”í•˜ë‹¤. ë¦¬ì†ŒìŠ¤ë¥¼ ì—”ì§„ì—ì„œ ì–´ë–»ê²Œ í•´ì„í• ì§€ ê²°ì •í•œë‹¤.
+//TODO: ì§€ê¸ˆì€ ì´ í•¨ìˆ˜ë¥¼ ë°”ê¿”ì•¼ë§Œ ë˜ë‹¤ë¥¸ 1:1ê´€ê³„ì˜ ì¶”ê°€ê°€ ê°€ëŠ¥í•œë°, ë‚˜ì¤‘ì— ë¦¬íŒ©í† ë§ì´ í•„ìš”í•  ê²ƒì´ë‹¤.
 void ResourceLoadCaller::initExtensionMap()
 {
 	extensionMap.insert({ "png", unique_ptr<FileLoader>(new PngLoader(PROJECTOR.Renderer())) });
@@ -80,7 +80,7 @@ void ResourceLoadCaller::initExtensionMap()
 
 void ResourceLoadCaller::insertResources()
 {
-	// iniÆÄÀÏ ·ÎµåÇÏ±â
+	// iniíŒŒì¼ ë¡œë“œí•˜ê¸°
 	IniSerialBuffer inputBuf;
 
 	std::ifstream fin("testIniSerialBuffer.ini", std::ios::binary);
@@ -93,7 +93,7 @@ void ResourceLoadCaller::insertResources()
 	
 	fin.close();
 
-	// vector<string>ÀĞ¾î¼­ È®ÀåÀÚ ÆÄ¾ÇÇÏ±â
+	// vector<string>ì½ì–´ì„œ í™•ì¥ì íŒŒì•…í•˜ê¸°
 	vector<string> filePaths(inputBuf.StrVec());
 	string pngExt("png"), txtExt("txt");
 
@@ -101,10 +101,10 @@ void ResourceLoadCaller::insertResources()
 		auto nowExt = getFileExtension(path);
 		auto nowName = getFileName(path);
 		if(nowExt.size() == 0  ||  nowName.size() == 0) {
-			std::cout << "È®ÀåÀÚ°¡ ¾ø°Å³ª ¹®Á¦°¡ ÀÖ´Â ÀÌ¸§" << nowExt.c_str();
+			std::cout << "í™•ì¥ìê°€ ì—†ê±°ë‚˜ ë¬¸ì œê°€ ìˆëŠ” ì´ë¦„" << nowExt.c_str();
 			continue;
 		}
-		//È®ÀåÀÚ ÀÌ¸§°ú ´ëÀÀÇÏ´Â XXXLoader·Î ÆÄÀÏµé ·Îµå.
+		//í™•ì¥ì ì´ë¦„ê³¼ ëŒ€ì‘í•˜ëŠ” XXXLoaderë¡œ íŒŒì¼ë“¤ ë¡œë“œ.
 		auto fileLoaderIter = extensionMap.find(nowExt);
 		if(fileLoaderIter != extensionMap.end()) {
 			(fileLoaderIter->second)->setPathStr(path);
@@ -112,7 +112,7 @@ void ResourceLoadCaller::insertResources()
 			resLib.insert(nowName, loadedData);
 		} 
 		else {
-			std::cout << "Áö¿øÇÏÁö ¾Ê´Â ¸®¼Ò½º Çü½Ä: " << nowName.c_str() << '\n';
+			std::cout << "ì§€ì›í•˜ì§€ ì•ŠëŠ” ë¦¬ì†ŒìŠ¤ í˜•ì‹: " << nowName.c_str() << '\n';
 		}
 	}
 }
@@ -121,7 +121,7 @@ string ResourceLoadCaller::getFileExtension(const string& filePath)
 {
 	string result;
 	
-	int end = filePath.size() - 1; //È®ÀåÀÚ(¹®ÀÚ¿­)ÀÇ ³¡ À§Ä¡
+	int end = filePath.size() - 1; //í™•ì¥ì(ë¬¸ìì—´)ì˜ ë ìœ„ì¹˜
 	for(int begin = filePath.size() - 1; begin >= 0; begin--) {
 		if(filePath[begin] == '.') {
 			result = filePath.substr(begin+1, end - begin);
@@ -139,7 +139,7 @@ string ResourceLoadCaller::getFileName(const string& filePath)
 {
 	string result;
 
-	int end = filePath.size() - 1; //ÀÌ¸§(¹®ÀÚ¿­)ÀÇ ³¡ À§Ä¡
+	int end = filePath.size() - 1; //ì´ë¦„(ë¬¸ìì—´)ì˜ ë ìœ„ì¹˜
 	for(int begin = filePath.size() - 1; begin >= 0; begin--) {
 		if(filePath[begin] == '\\') {
 			result = filePath.substr(begin + 1, end - begin);

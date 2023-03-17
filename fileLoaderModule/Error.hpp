@@ -2,15 +2,15 @@
 
 #include <cstdlib>
 
-//TODO: MEC++À» º¸°í ¿Í¼­ ÇÏÀÚ. ÀÌ°Ç Á» ¾Æ´Ï¾ß.
+//TODO: MEC++ì„ ë³´ê³  ì™€ì„œ í•˜ì. ì´ê±´ ì¢€ ì•„ë‹ˆì•¼.
 
 class Error {
 public:
 	bool isCritical;
 	int menu;
 
-	//isCritical == true: ¿¹¿Ü Ã³¸® ÀÌÈÄ °­Á¦ Á¾·á.
-	//menu == 0: catch¹® µîÀ» ¾µ ¶§¸¦ À§ÇÑ ±âº» »ı¼ºÀÚ.
+	//isCritical == true: ì˜ˆì™¸ ì²˜ë¦¬ ì´í›„ ê°•ì œ ì¢…ë£Œ.
+	//menu == 0: catchë¬¸ ë“±ì„ ì“¸ ë•Œë¥¼ ìœ„í•œ ê¸°ë³¸ ìƒì„±ì.
 	explicit Error(bool isCritical = false, int menu = 0)
 		: isCritical(isCritical), menu(menu)
 	{}

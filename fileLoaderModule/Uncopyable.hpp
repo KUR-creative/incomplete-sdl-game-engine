@@ -1,7 +1,7 @@
 #pragma once
 /*
 *class Uncopyable		from Effective C++ third
-* º¹»ç, º¹»ç´ëÀÔ»ı¼ºÀ» ¸·°í½ÍÀº Å¬·¡½º¿¡ private »ó¼Ó½ÃÅ°¸é µÈ´Ù.
+* ë³µì‚¬, ë³µì‚¬ëŒ€ì…ìƒì„±ì„ ë§‰ê³ ì‹¶ì€ í´ë˜ìŠ¤ì— private ìƒì†ì‹œí‚¤ë©´ ëœë‹¤.
 */
 class Uncopyable {
 protected:

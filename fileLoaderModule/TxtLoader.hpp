@@ -5,14 +5,14 @@
 using std::string;
 using std::unique_ptr;
 
-//ÆÄÀÏ¿¡¼­ loadÇÑ µ¥ÀÌÅÍÀÇ ÀúÀå¼Ò(string wrapper) 
-// ANSI(¸ÖÆ¼¹ÙÀÌÆ®) encoded
+//íŒŒì¼ì—ì„œ loadí•œ ë°ì´í„°ì˜ ì €ì¥ì†Œ(string wrapper) 
+// ANSI(ë©€í‹°ë°”ì´íŠ¸) encoded
 class Text: public LoadedData {
 private:
 	string txt;
 	
 public:			
-	//ÆÄÀÏ ·Îµå¿ë
+	//íŒŒì¼ ë¡œë“œìš©
 	explicit Text(const char* txtData)
 		: txt(txtData)
 	{}
@@ -20,7 +20,7 @@ public:
 		: txt(txtData)
 	{}
 
-	//resource·Îµå. ÇØ½¬°ª ³Ö±â.
+	//resourceë¡œë“œ. í•´ì‰¬ê°’ ë„£ê¸°.
 	explicit Text(const hash_key& hashKey)
 		: LoadedData(hashKey)
 	{}
@@ -34,9 +34,9 @@ public:
 	explicit TxtLoader(const string& path)
 		: FileLoader(path)
 	{}
-	//°æ·Î¾ø´Â »ı¼º
+	//ê²½ë¡œì—†ëŠ” ìƒì„±
 	explicit TxtLoader(){}
 	
-	//½ÇÆĞ½Ã¿¡ nullptr ¹İÈ¯
+	//ì‹¤íŒ¨ì‹œì— nullptr ë°˜í™˜
 	unique_ptr<LoadedData> load() override;	
 };

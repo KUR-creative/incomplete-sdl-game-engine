@@ -1,5 +1,5 @@
-//TODO:¸±¸®Áî¿ëÀÇ °æ¿ì vector<string> paths¸¦ ÁÖÀÔÇÏÁö ¾Ê¾Ò´Ù¸é °æ°í¸¦ ÇØÁà¾ß ÇÑ´Ù.
-//±×°Ç RES_LIB¿¡¼­ LoadedData¸¦ ²¨³¾ ¾Ë ¼ö ÀÖÀ»°ÍÀÌ´Ù.
+//TODO:ë¦´ë¦¬ì¦ˆìš©ì˜ ê²½ìš° vector<string> pathsë¥¼ ì£¼ì…í•˜ì§€ ì•Šì•˜ë‹¤ë©´ ê²½ê³ ë¥¼ í•´ì¤˜ì•¼ í•œë‹¤.
+//ê·¸ê±´ RES_LIBì—ì„œ LoadedDataë¥¼ êº¼ë‚¼ ì•Œ ìˆ˜ ìˆì„ê²ƒì´ë‹¤.
 #pragma once
 
 #include <string>
@@ -17,15 +17,15 @@ private:
 	unordered_map<string,unique_ptr<FileLoader>> extensionMap;
 	
 private:
-	//ÃÊ±âÈ­
+	//ì´ˆê¸°í™”
 	explicit ResourceLoadCaller(ResourceLibrary& resLib);
 
-	//ÆÄÀÏ:¿ø½Ã°´Ã¼ 1:1 ´ëÀÀÀ» À§ÇÑ ·Î´õµéÀ» ³Ö¾îÁØ´Ù.
+	//íŒŒì¼:ì›ì‹œê°ì²´ 1:1 ëŒ€ì‘ì„ ìœ„í•œ ë¡œë”ë“¤ì„ ë„£ì–´ì¤€ë‹¤.
 	void initExtensionMap();
-	//¸®¼Ò½º¸¦ extensionMap¿¡ µû¶ó¼­ resLib¿¡ ³Ö¾îÁØ´Ù.
+	//ë¦¬ì†ŒìŠ¤ë¥¼ extensionMapì— ë”°ë¼ì„œ resLibì— ë„£ì–´ì¤€ë‹¤.
 	void insertResources();
 
-	//È®ÀåÀÚ or ÀÌ¸§ÀÌ ¾ø´Â °æ¿ì ºó string ¹İÈ¯.
+	//í™•ì¥ì or ì´ë¦„ì´ ì—†ëŠ” ê²½ìš° ë¹ˆ string ë°˜í™˜.
 	string getFileExtension(const string& filePath);
 	string getFileName(const string& filePath);
 };

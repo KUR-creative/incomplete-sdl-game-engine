@@ -1,62 +1,62 @@
-È°¿ëÆÁÀº *)·Î Ç¥½Ã
+í™œìš©íŒì€ *)ë¡œ í‘œì‹œ
 
-¡á DisplayObject ½ºÆå ¡á
+â–  DisplayObject ìŠ¤íŽ™ â– 
 
-[°³³äÀûÀÎ member¿Í / ½ÇÁ¦ ·»´õ¸µ¿ë render member]°¡ ÀÖ´Ù.
-°³³äÀûÀÎ ¸â¹ö¸¸ Á¢±ÙÇÏ¿© ¼öÁ¤ÇÒ ¼ö ÀÖ´Ù.
-·»´õ¸µ ¸â¹ö¿¡´Â Á¢±ÙÀÌ ºÒ°¡´ÉÇÏ¸ç ·»´õ¸µ½Ã¿¡ ³»ºÎÀûÀ¸·Î °è»êµÈ´Ù.
-¶Ç ·»´õ¸µ ¸â¹ö´Â ÀÚ½ÅÀ» ¼ÒÀ¯ÇÑ ºÎ¸ðÀÇ ·»´õ¸µ ¸â¹ö¿¡°Ô ¿µÇâÀ» ¹Þ´Â´Ù.
+[ê°œë…ì ì¸ memberì™€ / ì‹¤ì œ ë Œë”ë§ìš© render member]ê°€ ìžˆë‹¤.
+ê°œë…ì ì¸ ë©¤ë²„ë§Œ ì ‘ê·¼í•˜ì—¬ ìˆ˜ì •í•  ìˆ˜ ìžˆë‹¤.
+ë Œë”ë§ ë©¤ë²„ì—ëŠ” ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•˜ë©° ë Œë”ë§ì‹œì— ë‚´ë¶€ì ìœ¼ë¡œ ê³„ì‚°ëœë‹¤.
+ë˜ ë Œë”ë§ ë©¤ë²„ëŠ” ìžì‹ ì„ ì†Œìœ í•œ ë¶€ëª¨ì˜ ë Œë”ë§ ë©¤ë²„ì—ê²Œ ì˜í–¥ì„ ë°›ëŠ”ë‹¤.
 1. x,y
-	DisplayObjectÀÇ ¿øÁ¡(0,0)Àº ÀÚ½ÅÀ» ¼ÒÀ¯ÇÑ ºÎ¸ðÀÇ È¸ÀüÁß½ÉÀÌ´Ù.
-	ºÎ¸ð°¡ ¾ø´Â rootÀÇ °æ¿ì ¿øÁ¡Àº È­¸é ¿ÞÂÊ À§ ²ÀÁöÁ¡ÀÌ´Ù.
+	DisplayObjectì˜ ì›ì (0,0)ì€ ìžì‹ ì„ ì†Œìœ í•œ ë¶€ëª¨ì˜ íšŒì „ì¤‘ì‹¬ì´ë‹¤.
+	ë¶€ëª¨ê°€ ì—†ëŠ” rootì˜ ê²½ìš° ì›ì ì€ í™”ë©´ ì™¼ìª½ ìœ„ ê¼­ì§€ì ì´ë‹¤.
 2. w,h
-	°¡Àå ±Ùº»ÀûÀÎ ÅØ½ºÃÄÀÇ Å©±â textureW, textureH´Â ·ÎµåÇÑ pngÀÇ °Í°ú °°´Ù.
-	ÀÌ Å©±â¸¦ ±âÁØÀ¸·Î DisplayObject »ý¼ºÀÚÀÇ w,h¿ÍÀÇ [ºñÀ²]À» °è»êÇÑ´Ù.
-	ÀÚ½Äµµ ÀÌ [ºñÀ²]¿¡ µû¶ó ·»´õ¸µµÈ´Ù.
-	Ã³À½ºÎÅÍ ¿øÇÏ´Â Å©±â¿¡ ¸Â´Â ÆÄÀÏÀ» »ý¼ºÇÏ¶ó.
-	ºÎ¸ð°¡ È®´ëµÈ »óÅÂ¸é ºÎ¸ðÀÇ ÀÚ½Äµµ È®´ëµÈ´Ù. 
-	addChildÇÑ ÀÚ½ÄÀÇ Å©±â°¡ ¿¹»ó ¹ÛÀÏ¼öµµ ÀÖ´Ù.
-	ratioW,ratioH¸¦ ÀÌ¿ëÇÏ¿© ºñÀ²·Î ¼öÁ¤ÇÏ°Å³ª
-	w,h¸¦ ÀÌ¿ëÇÏ¿© ÇÈ¼¿´ÜÀ§·Î ¼öÁ¤ÇÒ ¼ö ÀÖ´Ù.
-3. È¸ÀüÁß½É
-	centerRatioW, centerRatioH·Î Ç¥ÇöµÇ¸ç, »ý¼º½Ã¿¡¸¸ °áÁ¤ÇÒ ¼ö ÀÖ´Ù. 
-	»ý¼º ÀÌÈÄ¿¡´Â ¼öÁ¤ÀÌ ºÒ°¡´ÉÇÏ´Ù.
+	ê°€ìž¥ ê·¼ë³¸ì ì¸ í…ìŠ¤ì³ì˜ í¬ê¸° textureW, textureHëŠ” ë¡œë“œí•œ pngì˜ ê²ƒê³¼ ê°™ë‹¤.
+	ì´ í¬ê¸°ë¥¼ ê¸°ì¤€ìœ¼ë¡œ DisplayObject ìƒì„±ìžì˜ w,hì™€ì˜ [ë¹„ìœ¨]ì„ ê³„ì‚°í•œë‹¤.
+	ìžì‹ë„ ì´ [ë¹„ìœ¨]ì— ë”°ë¼ ë Œë”ë§ëœë‹¤.
+	ì²˜ìŒë¶€í„° ì›í•˜ëŠ” í¬ê¸°ì— ë§žëŠ” íŒŒì¼ì„ ìƒì„±í•˜ë¼.
+	ë¶€ëª¨ê°€ í™•ëŒ€ëœ ìƒíƒœë©´ ë¶€ëª¨ì˜ ìžì‹ë„ í™•ëŒ€ëœë‹¤. 
+	addChildí•œ ìžì‹ì˜ í¬ê¸°ê°€ ì˜ˆìƒ ë°–ì¼ìˆ˜ë„ ìžˆë‹¤.
+	ratioW,ratioHë¥¼ ì´ìš©í•˜ì—¬ ë¹„ìœ¨ë¡œ ìˆ˜ì •í•˜ê±°ë‚˜
+	w,hë¥¼ ì´ìš©í•˜ì—¬ í”½ì…€ë‹¨ìœ„ë¡œ ìˆ˜ì •í•  ìˆ˜ ìžˆë‹¤.
+3. íšŒì „ì¤‘ì‹¬
+	centerRatioW, centerRatioHë¡œ í‘œí˜„ë˜ë©°, ìƒì„±ì‹œì—ë§Œ ê²°ì •í•  ìˆ˜ ìžˆë‹¤. 
+	ìƒì„± ì´í›„ì—ëŠ” ìˆ˜ì •ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
 4. alpha, RGB
-	0~255»çÀÌÀÇ °ª¸¸ ¹Þ¾ÆµéÀÎ´Ù.
-	ºñÀ²À» ÅëÇØ ¼öÁ¤ÇÒ ¼öµµ ÀÖ´Ù.
+	0~255ì‚¬ì´ì˜ ê°’ë§Œ ë°›ì•„ë“¤ì¸ë‹¤.
+	ë¹„ìœ¨ì„ í†µí•´ ìˆ˜ì •í•  ìˆ˜ë„ ìžˆë‹¤.
 
 
-render member¸¦ ¼öÁ¤Àº ¸øÇØµµ getÀº °¡´ÉÇÏ°Ô ÇÏÀÚ.
+render memberë¥¼ ìˆ˜ì •ì€ ëª»í•´ë„ getì€ ê°€ëŠ¥í•˜ê²Œ í•˜ìž.
 
-¡á DisplayObject ±¸Çö »çÇ× ¡á
+â–  DisplayObject êµ¬í˜„ ì‚¬í•­ â– 
 
-DisplayObject´Â °³³äÀûÀÎ ¸â¹öµé°ú ·»´õ¸µ¿ë ¸â¹örender memberµéÀ» °¡Áø´Ù.
-renderCopy¸¦ ÇÒ ¶§ ¸¶´Ù resetRenderMember()¸¦ È£ÃâÇÑ´Ù.
-resetRenderMember()¿¡¼­ render member(renderRect, renderAngle, render...)¸¦ °è»êÇÑ´Ù.
+DisplayObjectëŠ” ê°œë…ì ì¸ ë©¤ë²„ë“¤ê³¼ ë Œë”ë§ìš© ë©¤ë²„render memberë“¤ì„ ê°€ì§„ë‹¤.
+renderCopyë¥¼ í•  ë•Œ ë§ˆë‹¤ resetRenderMember()ë¥¼ í˜¸ì¶œí•œë‹¤.
+resetRenderMember()ì—ì„œ render member(renderRect, renderAngle, render...)ë¥¼ ê³„ì‚°í•œë‹¤.
 
 1.
-renderRectÀÇ Å©±âw,h´Â ¿øÅØ½ºÃÄÀÇ Å©±â(textureW,textureH)¿¡ ´ëÇÑ
-ÀÚ½ÅÀÇ ºñÀ²(ratioW,ratioH)°ú ºÎ¸ðÀÇ ºñÀ²(parent->renderRatioW,parent->renderRatioH)¿¡ µû¶ó ´Þ¶óÁø´Ù.
+renderRectì˜ í¬ê¸°w,hëŠ” ì›í…ìŠ¤ì³ì˜ í¬ê¸°(textureW,textureH)ì— ëŒ€í•œ
+ìžì‹ ì˜ ë¹„ìœ¨(ratioW,ratioH)ê³¼ ë¶€ëª¨ì˜ ë¹„ìœ¨(parent->renderRatioW,parent->renderRatioH)ì— ë”°ë¼ ë‹¬ë¼ì§„ë‹¤.
 
 2.
-°³³äÀûÀÎ È¸ÀüÁß½É(¿øÁ¡)Àº ÁÂÇ¥°¡ ¾Æ´Ñ ºñÀ²(centerRatioW, centerRatioH)·Î Ç¥ÇöµÈ´Ù.
-È¸Àü½Ã °¢µµ´Â ºÎ¸ðÀÇ °¢µµ(parent->renderAngle)°¡ ´õÇØÁø´Ù.
+ê°œë…ì ì¸ íšŒì „ì¤‘ì‹¬(ì›ì )ì€ ì¢Œí‘œê°€ ì•„ë‹Œ ë¹„ìœ¨(centerRatioW, centerRatioH)ë¡œ í‘œí˜„ëœë‹¤.
+íšŒì „ì‹œ ê°ë„ëŠ” ë¶€ëª¨ì˜ ê°ë„(parent->renderAngle)ê°€ ë”í•´ì§„ë‹¤.
 
 3.
-renderCenter´Â renderRect¿¡ »ó´ëÀûÀÎ È¸ÀüÁß½ÉÀÌ¸ç
-·»´õ¸µ¿øÁ¡centerForChild´Â ·»´õ¸µ½Ã À©µµ¿ì È­¸é¿¡ »ó´ëÀûÀÎ ¿øÁ¡ ÁÂÇ¥ÀÌ´Ù.
-·»´õ¸µ¿øÁ¡¿¡µµ È¸Àüº¯È¯ÀÌ Àû¿ëµÇ±â¿¡ ºÎ¸ð¿¡¼­ ÀÏ¾î³­ È¸Àüº¯È¯ÀÌ ÀÚ¼Õµé¿¡°Ô Àü´ÞµÈ´Ù.
+renderCenterëŠ” renderRectì— ìƒëŒ€ì ì¸ íšŒì „ì¤‘ì‹¬ì´ë©°
+ë Œë”ë§ì›ì centerForChildëŠ” ë Œë”ë§ì‹œ ìœˆë„ìš° í™”ë©´ì— ìƒëŒ€ì ì¸ ì›ì  ì¢Œí‘œì´ë‹¤.
+ë Œë”ë§ì›ì ì—ë„ íšŒì „ë³€í™˜ì´ ì ìš©ë˜ê¸°ì— ë¶€ëª¨ì—ì„œ ì¼ì–´ë‚œ íšŒì „ë³€í™˜ì´ ìžì†ë“¤ì—ê²Œ ì „ë‹¬ëœë‹¤.
 
 4.
-renderRectÀÇ ÁÂÇ¥x,y¿¡ 5°¡Áö º¯È­°¡ ¿µÇâÀ» ¹ÌÄ£´Ù.
-	1-1.ÀÚ½ÅÀÇ ÁÂÇ¥(rect.x, rect.y) º¯È­
-	1-2.ºÎ¸ðÀÇ ÁÂÇ¥(parent->centerForChild.x, parent->centerForChild.y) º¯È­
+renderRectì˜ ì¢Œí‘œx,yì— 5ê°€ì§€ ë³€í™”ê°€ ì˜í–¥ì„ ë¯¸ì¹œë‹¤.
+	1-1.ìžì‹ ì˜ ì¢Œí‘œ(rect.x, rect.y) ë³€í™”
+	1-2.ë¶€ëª¨ì˜ ì¢Œí‘œ(parent->centerForChild.x, parent->centerForChild.y) ë³€í™”
 
-	2-1.ÀÚ½ÅÀÇ Å©±â(renderRatioW, renderRatioH) º¯È­
-	2-2.ºÎ¸ðÀÇ Å©±â(parent->renderRatioW, parent->renderRatioH) º¯È­
+	2-1.ìžì‹ ì˜ í¬ê¸°(renderRatioW, renderRatioH) ë³€í™”
+	2-2.ë¶€ëª¨ì˜ í¬ê¸°(parent->renderRatioW, parent->renderRatioH) ë³€í™”
 
-	3-1.(¿µÇâ¾øÀ½)ÀÚ½ÅÀÇ angleÀº renderRectÀÇ ÁÂÇ¥¿£ ¿µÇâ¾øÀ½
-	3-2.ºÎ¸ðÀÇ °¢µµ(parent->renderAngle) È¸Àüº¯È¯À» ÅëÇØ Àû¿ëµÈ´Ù.
-		È¸Àüº¯È¯½ÃÀÇ ¿øÁ¡Àº ºÎ¸ðÀÇ ·»´õ¸µ¿øÁ¡(parent->centerForChild)ÀÌ´Ù.
-		ÀÌ ¶§ ¿øÁ¡¿¡¼­ ÅØ½ºÃÄ ¸ð¼­¸® ³¡(renderCopy¿¡ ¾²ÀÌ´Â Á¡)±îÁöÀÇ ±æÀÌ´Â 
-		Ç×»ó ÀÏÁ¤ÇØ¾ß ÇÏ±â¿¡ 	È¸Àüº¯È¯ÀÇ ´ë»óÀÌ ¾Æ´Ï´Ù.
+	3-1.(ì˜í–¥ì—†ìŒ)ìžì‹ ì˜ angleì€ renderRectì˜ ì¢Œí‘œì—” ì˜í–¥ì—†ìŒ
+	3-2.ë¶€ëª¨ì˜ ê°ë„(parent->renderAngle) íšŒì „ë³€í™˜ì„ í†µí•´ ì ìš©ëœë‹¤.
+		íšŒì „ë³€í™˜ì‹œì˜ ì›ì ì€ ë¶€ëª¨ì˜ ë Œë”ë§ì›ì (parent->centerForChild)ì´ë‹¤.
+		ì´ ë•Œ ì›ì ì—ì„œ í…ìŠ¤ì³ ëª¨ì„œë¦¬ ë(renderCopyì— ì“°ì´ëŠ” ì )ê¹Œì§€ì˜ ê¸¸ì´ëŠ” 
+		í•­ìƒ ì¼ì •í•´ì•¼ í•˜ê¸°ì— 	íšŒì „ë³€í™˜ì˜ ëŒ€ìƒì´ ì•„ë‹ˆë‹¤.

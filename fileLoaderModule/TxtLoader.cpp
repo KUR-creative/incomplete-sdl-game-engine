@@ -7,15 +7,15 @@
 unique_ptr<LoadedData> TxtLoader::load(){
 	std::ifstream fin(getFilePath());
 	if(!fin) {
-		std::cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ!" << '\n';
+		std::cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨!" << '\n';
 		if(isPathStrEmpty()) {
-			std::cout << "°æ·Î ¹®ÀÚ¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù. °æ·Î¾ø´Â TxtLoader»ı¼ºÀÌÈÄ °æ·Î¸¦ ³ÖÁö ¾Ê°í ÆÄÀÏÀ» ·ÎµåÇßÀ» °¡´É¼ºÀÌ Å®´Ï´Ù." << '\n';
+			std::cout << "ê²½ë¡œ ë¬¸ìì—´ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤. ê²½ë¡œì—†ëŠ” TxtLoaderìƒì„±ì´í›„ ê²½ë¡œë¥¼ ë„£ì§€ ì•Šê³  íŒŒì¼ì„ ë¡œë“œí–ˆì„ ê°€ëŠ¥ì„±ì´ í½ë‹ˆë‹¤." << '\n';
 		}
 		return nullptr;
 	}
 
 	string buf;
-	int c;	//TODO : ÀÌ°Å ÇØÁÖ´Â Ç¥ÁØÇÔ¼ö ¾ø³Ä...?
+	int c;	//TODO : ì´ê±° í•´ì£¼ëŠ” í‘œì¤€í•¨ìˆ˜ ì—†ëƒ...?
 	while((c = fin.get()) != EOF) {
 		buf += c;
 	}
@@ -27,14 +27,14 @@ unique_ptr<LoadedData> TxtLoader::load(){
 
 #include <gtest\gtest.h>
 
-TEST(´ÜÀ§Å×½ºÆ®, TxtLoader){
-	//Ç¥ÁØÀ¸·Î ÆÄÀÏ ·Îµå.
+TEST(ë‹¨ìœ„í…ŒìŠ¤íŠ¸, TxtLoader){
+	//í‘œì¤€ìœ¼ë¡œ íŒŒì¼ ë¡œë“œ.
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\test.txt");
 
 	std::ifstream fin(path);
 	if(!fin) {
-		std::cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ!" << '\n';
+		std::cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨!" << '\n';
 	}
 
 	string file;
@@ -44,7 +44,7 @@ TEST(´ÜÀ§Å×½ºÆ®, TxtLoader){
 	}
 	fin.close();
 
-	//TxtLoader¸¦ ÀÌ¿ëÇÑ ÆÄÀÏ·Îµå
+	//TxtLoaderë¥¼ ì´ìš©í•œ íŒŒì¼ë¡œë“œ
 	TxtLoader txtLoader(path);	//const string& path
 	FileLoader* fLoader = &txtLoader;
 	unique_ptr<LoadedData> testText(fLoader->load());
@@ -52,30 +52,30 @@ TEST(´ÜÀ§Å×½ºÆ®, TxtLoader){
 	if(testText) {
 		EXPECT_TRUE(testText.get());
 
-		//ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÑ °æ¿ì
-		//ÀÌÁ¦ txt¸¦ stringÀ¸·Î ¸Ş¸ğ¸®¿¡ ¿Ã·Áº¸ÀÚ
+		//íŒŒì¼ ì˜¤í”ˆì— ì„±ê³µí•œ ê²½ìš°
+		//ì´ì œ txtë¥¼ stringìœ¼ë¡œ ë©”ëª¨ë¦¬ì— ì˜¬ë ¤ë³´ì
 		ASSERT_STREQ(file.c_str(), static_cast<Text*>(testText.get())->c_str());
-	} else { //ÆÄÀÏ ¿ÀÇÂ¿¡ ½ÇÆĞÇÑ °æ¿ìÀÇ ¿¹¿ÜÃ³¸®
+	} else { //íŒŒì¼ ì˜¤í”ˆì— ì‹¤íŒ¨í•œ ê²½ìš°ì˜ ì˜ˆì™¸ì²˜ë¦¬
 		ASSERT_FALSE(testText);
 	}
 }
 
-TEST(´ÜÀ§Å×½ºÆ®, °æ·Î¾ø´ÂTxtLoader»ı¼º){
+TEST(ë‹¨ìœ„í…ŒìŠ¤íŠ¸, ê²½ë¡œì—†ëŠ”TxtLoaderìƒì„±){
 	TxtLoader txtLoader;
 	unique_ptr<LoadedData> testText(txtLoader.load());
-	ASSERT_FALSE(testText.get());	//°æ·Î°¡ ¾ø´Ù¸é ÆÄÀÏ·Îµå ½ÇÆĞ->nullptr¹İÈ¯
+	ASSERT_FALSE(testText.get());	//ê²½ë¡œê°€ ì—†ë‹¤ë©´ íŒŒì¼ë¡œë“œ ì‹¤íŒ¨->nullptrë°˜í™˜
 	
-	//°æ·Î ³Ö±â
+	//ê²½ë¡œ ë„£ê¸°
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\test.txt");
 	txtLoader.setPathStr(path);
 	testText = txtLoader.load();
-	ASSERT_TRUE(testText.get());	//°æ·Î°¡ ÀÖ´Ù¸é ÆÄÀÏ·Îµå °¡´É.
+	ASSERT_TRUE(testText.get());	//ê²½ë¡œê°€ ìˆë‹¤ë©´ íŒŒì¼ë¡œë“œ ê°€ëŠ¥.
 
-	//·Î´õ¸¦ »ç¿ëÇÏÁö ¾ÊÀº ÆÄÀÏ·Îµå¿Í ºñ±³
+	//ë¡œë”ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì€ íŒŒì¼ë¡œë“œì™€ ë¹„êµ
 	std::ifstream fin(path);
 	if(!fin) {
-		std::cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ!" << '\n';
+		std::cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨!" << '\n';
 	}
 	string noLoader;
 	int c;

@@ -24,7 +24,7 @@ public:
 	explicit LoadedData(const hash_key& key)
 		:hashStr(key)
 	{}
-	const string& HashStr() const{ return hashStr; }	//~LoadedData(){ printf("---LoadedData Á×¾ú´Ù!---\n"); }
+	const string& HashStr() const{ return hashStr; }	//~LoadedData(){ printf("---LoadedData ì£½ì—ˆë‹¤!---\n"); }
 };
 
 class FileLoader {
@@ -33,10 +33,10 @@ private:
 
 public:
 	explicit FileLoader(const string& path): filePath(path){}
-	explicit FileLoader(){}//°æ·Î ¾ø´Â »ı¼º
+	explicit FileLoader(){}//ê²½ë¡œ ì—†ëŠ” ìƒì„±
 	
-	//½ÇÆĞ½Ã nullptr¹İÈ¯
-	virtual unique_ptr<LoadedData> load() = 0; //filePath·Î Èü¿¡ ÇÒ´ç½ÃÅ² ´ÙÀ½ ¹İÈ¯ÇÑ´Ù.
+	//ì‹¤íŒ¨ì‹œ nullptrë°˜í™˜
+	virtual unique_ptr<LoadedData> load() = 0; //filePathë¡œ í™ì— í• ë‹¹ì‹œí‚¨ ë‹¤ìŒ ë°˜í™˜í•œë‹¤.
 
 	void setPathStr(const string& newPath){ filePath = newPath; }
 

@@ -11,12 +11,12 @@ class Png: public LoadedData {
 private:
 	shared_ptr<SDL_Texture> texture;
 public:					
-	//ÆÄÀÏ ·Îµå¿ë
+	//íŒŒì¼ ë¡œë“œìš©
 	Png(SDL_Texture* tex){
 		texture.reset(tex, &SDL_DestroyTexture);
 	}
 
-	//resource·Îµå. ÇØ½¬°ªÀ» °°ÀÌ Áà¾ßÇÑ´Ù.
+	//resourceë¡œë“œ. í•´ì‰¬ê°’ì„ ê°™ì´ ì¤˜ì•¼í•œë‹¤.
 	explicit Png(const hash_key& hashKey)
 		: texture(nullptr), LoadedData(hashKey)
 	{};
@@ -32,9 +32,9 @@ public:
 	explicit PngLoader(shared_ptr<SDL_Renderer> ren, const string& path)
 		: renderer(ren), FileLoader(path)
 	{}
-	explicit PngLoader(shared_ptr<SDL_Renderer> ren)	//°æ·Î¾ø´Â »ı¼º
+	explicit PngLoader(shared_ptr<SDL_Renderer> ren)	//ê²½ë¡œì—†ëŠ” ìƒì„±
 		:renderer(ren)
 	{}
-	//½ÇÆĞ½Ã nullptr ¹İÈ¯
+	//ì‹¤íŒ¨ì‹œ nullptr ë°˜í™˜
 	unique_ptr<LoadedData> load() override;	
 };

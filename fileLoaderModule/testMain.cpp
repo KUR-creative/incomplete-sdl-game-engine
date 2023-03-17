@@ -1,4 +1,4 @@
-//VS ¸Ş¸ğ¸® ´©¼ö Å½Áö
+//VS ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ íƒì§€
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -14,7 +14,7 @@
 #include <io.h>
 #include <stdio.h>
 #include <cstring>
-#include <direct.h>	//windows Á¾¼Ó, ±×·±µ¥ ¾Æ·¡ ÀÖ´Â ÇÔ¼ö´Â POSIXÀÎ µí?
+#include <direct.h>	//windows ì¢…ì†, ê·¸ëŸ°ë° ì•„ë˜ ìˆëŠ” í•¨ìˆ˜ëŠ” POSIXì¸ ë“¯?
 
 #include <string>
 #include <vector>
@@ -35,16 +35,16 @@ using namespace std;
 #include "ResourceLibrary.hpp"
 #include "ResourceLoadCaller.hpp"
 
-//Å¸ÀÔ Áø´Ü¿ë ÅÛÇÃ¸´
+//íƒ€ì… ì§„ë‹¨ìš© í…œí”Œë¦¿
 template<typename T>
 class TD;
 
 int main(int argc, char* argv[])
 {
-	//CRT ¸Ş¸ğ¸®¸¯ µğ¹ö±ëÀ» À§ÇÑ ÃÊ±âÈ­
+	//CRT ë©”ëª¨ë¦¬ë¦­ ë””ë²„ê¹…ì„ ìœ„í•œ ì´ˆê¸°í™”
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	cout << "¾ğÁ¦ ³ª¿À³Ä?" << '\n';
+	cout << "ì–¸ì œ ë‚˜ì˜¤ëƒ?" << '\n';
 
 	testing::InitGoogleTest(&argc, argv);
 
@@ -60,25 +60,25 @@ int main(int argc, char* argv[])
 	}
 
 	
-	//Àü¿ª ½Ì±ÛÅæµé ÃÊ±âÈ­(¼­·Î ÀÇÁ¸°ü°è°¡ ÀÖ¾î¼­ createInstanceÀÇ ¼ø¼­¸¦ ¹İµå½Ã ÁöÄÑ¾ß ÇÑ´Ù.)
+	//ì „ì—­ ì‹±ê¸€í†¤ë“¤ ì´ˆê¸°í™”(ì„œë¡œ ì˜ì¡´ê´€ê³„ê°€ ìˆì–´ì„œ createInstanceì˜ ìˆœì„œë¥¼ ë°˜ë“œì‹œ ì§€ì¼œì•¼ í•œë‹¤.)
 	
-	//Á¶°¢³ªÀÖ´Â ÃÊ±âÈ­½Ã ¿¹¿ÜÃ³¸®¸¦ try...catch¹®°ú ¿¹¿ÜÃ³¸® Å¬·¡½º¸¦ ÀÌ¿ëÇØ¼­
-	//ÇÑ °÷¿¡ ¸ğ¾ÆµÑ¼öµµ ÀÖ´Ù.
+	//ì¡°ê°ë‚˜ìˆëŠ” ì´ˆê¸°í™”ì‹œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ try...catchë¬¸ê³¼ ì˜ˆì™¸ì²˜ë¦¬ í´ë˜ìŠ¤ë¥¼ ì´ìš©í•´ì„œ
+	//í•œ ê³³ì— ëª¨ì•„ë‘˜ìˆ˜ë„ ìˆë‹¤.
 
-	//¸Ş¸ğ¸® ´©¼ö Å×½ºÆ®´Â °¡Àå ¸¶Áö¸·¿¡ ÇÏÀÚ.
+	//ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ í…ŒìŠ¤íŠ¸ëŠ” ê°€ì¥ ë§ˆì§€ë§‰ì— í•˜ì.
 	//_CrtSetBreakAlloc(718);
 
-	// ¸Ş¸ğ¸®! ¸Ş¸ğ¸®¸¦ º¸ÀÚ!!!
+	// ë©”ëª¨ë¦¬! ë©”ëª¨ë¦¬ë¥¼ ë³´ì!!!
 	_CrtDumpMemoryLeaks();
 
-	//¿¬¿ªµÇ´Â Å¸ÀÙ Ã¼Å©
+	//ì—°ì—­ë˜ëŠ” íƒ€ì ì²´í¬
 	//TD<decltype(&SDL_DestroyWindow)> wut;
 	//TD<decltype(SDL_DestroyWindow)> wuth;
 	
 	return RUN_ALL_TESTS();
 }
 
-/*//Å©¸®Æ¼ÄÃ ¿¡·¯
+/*//í¬ë¦¬í‹°ì»¬ ì—ëŸ¬
 #include "Error.hpp"
 class testCritical: public ErrorCritical < int > {
 public:
@@ -89,7 +89,7 @@ private:
 	}
 };
 
-TEST(¿¹¿ÜÃ³¸®Å×½ºÆ®, Å©¸®Æ¼ÄÃ¿¡·¯){
+TEST(ì˜ˆì™¸ì²˜ë¦¬í…ŒìŠ¤íŠ¸, í¬ë¦¬í‹°ì»¬ì—ëŸ¬){
 	try {
 		testCritical a(10);
 		throw a;
@@ -100,16 +100,16 @@ TEST(¿¹¿ÜÃ³¸®Å×½ºÆ®, Å©¸®Æ¼ÄÃ¿¡·¯){
 }
 */
 
-TEST(ÃÊ±âÈ­, ½Ì±ÛÅæ_ÃÊ±âÈ­){
-	//¼­·Î ÀÇÁ¸ÇÏ±â ¶§¹®¿¡ ¹İµå½Ã ¼ø¼­¸¦ ÁöÄÑ¾ß ÇÑ´Ù.
-	//³ªÁß¿¡ ÃÊ±âÈ­ Å¬·¡½º¿¡¼­ Ä¸½¶È­ÇÒ °ÍÀÌ´Ù.
-	Projector::createInstance("ÅëÇÕ Å×½ºÆ®: test game", 300, 30, 1000, 1000);
+TEST(ì´ˆê¸°í™”, ì‹±ê¸€í†¤_ì´ˆê¸°í™”){
+	//ì„œë¡œ ì˜ì¡´í•˜ê¸° ë•Œë¬¸ì— ë°˜ë“œì‹œ ìˆœì„œë¥¼ ì§€ì¼œì•¼ í•œë‹¤.
+	//ë‚˜ì¤‘ì— ì´ˆê¸°í™” í´ë˜ìŠ¤ì—ì„œ ìº¡ìŠí™”í•  ê²ƒì´ë‹¤.
+	Projector::createInstance("í†µí•© í…ŒìŠ¤íŠ¸: test game", 300, 30, 1000, 1000);
 	ResourceLibrary::createInstance();
 	ResourceLoadCaller::createInstance(RES_LIB);
 }
 
-TEST(½Ì±ÛÅæ_´ÜÀ§Å×½ºÆ®, Projector){
-	//ÇÁ·ÎÁ§ÅÍ´Â SDL_Window¿Í SDL_RendererÀ» °¡Áö´Â ½Ì±ÛÅæ °´Ã¼ÀÌ´Ù.
+TEST(ì‹±ê¸€í†¤_ë‹¨ìœ„í…ŒìŠ¤íŠ¸, Projector){
+	//í”„ë¡œì í„°ëŠ” SDL_Windowì™€ SDL_Rendererì„ ê°€ì§€ëŠ” ì‹±ê¸€í†¤ ê°ì²´ì´ë‹¤.
 	Projector::Instance();
 	shared_ptr<SDL_Renderer> renderer = Projector::Instance().Renderer();
 	ASSERT_TRUE(renderer);
@@ -118,7 +118,7 @@ TEST(½Ì±ÛÅæ_´ÜÀ§Å×½ºÆ®, Projector){
 }
 
 
-//ºÎ½ºÆ® Á÷·ÄÈ­ ¶óÀÌºê·¯¸® ÇĞ½À_Å×½ºÆ®
+//ë¶€ìŠ¤íŠ¸ ì§ë ¬í™” ë¼ì´ë¸ŒëŸ¬ë¦¬ í•™ìŠµ_í…ŒìŠ¤íŠ¸
 class TestSerialBuffer {
 private:
 	friend class boost::serialization::access;
@@ -131,7 +131,7 @@ private:
 
 public:
 	TestSerialBuffer(char output){
-		strVec = { "a", "ab", "abc", "abcd", "a b c d e", "abc def", "°¡³ª´Ù¶ó", "°«µ© ¾Ö¾² È¦ ¸¶´õ»µÄ¿" };
+		strVec = { "a", "ab", "abc", "abcd", "a b c d e", "abc def", "ê°€ë‚˜ë‹¤ë¼", "ê°“ë€ ì• ì“° í™€ ë§ˆë”ë»ì»¤" };
 	}
 	TestSerialBuffer(int input){}
 	
@@ -147,7 +147,7 @@ public:
 	}
 };
 
-TEST(boost¶óÀÌºê·¯¸®, SerializationÇĞ½À_Å×½ºÆ®){
+TEST(boostë¼ì´ë¸ŒëŸ¬ë¦¬, Serializationí•™ìŠµ_í…ŒìŠ¤íŠ¸){
 	TestSerialBuffer outputBuf('o');
 	TestSerialBuffer inputBuf(1);
 	
@@ -174,14 +174,14 @@ TEST(boost¶óÀÌºê·¯¸®, SerializationÇĞ½À_Å×½ºÆ®){
 
 /*
 #include "CsvSaver.hpp"
-// XXXSaver´Â Ç¥ÁØ ÆÄÀÏ ½ºÆ®¸²À» ÀÌ¿ëÇÏ´Â°Ô ´äÀÏ °ÍÀÌ´Ù.
-TEST(FileSaverÅ×½ºÆ®, DirCsvSaver){
+// XXXSaverëŠ” í‘œì¤€ íŒŒì¼ ìŠ¤íŠ¸ë¦¼ì„ ì´ìš©í•˜ëŠ”ê²Œ ë‹µì¼ ê²ƒì´ë‹¤.
+TEST(FileSaverí…ŒìŠ¤íŠ¸, DirCsvSaver){
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\output.csv");
 	string onlyDir(basePath + "resource\\");
-	//°æ·Î¸¦ ÁÖ°í ÆÄÀÏ»ı¼ºÀ» ÇÏ·ÁÇÏ¸é ¾î¶»°Ô µÇ´Â°¡??
-	//»ı¼ºÀÌ µÈ °æ¿ìÀÇ Å×½ºÆ®´Â?
-	//»ı¼ºÀÌ µÇÁö ¾ÊÀº °æ¿ì´Â?
+	//ê²½ë¡œë¥¼ ì£¼ê³  íŒŒì¼ìƒì„±ì„ í•˜ë ¤í•˜ë©´ ì–´ë–»ê²Œ ë˜ëŠ”ê°€??
+	//ìƒì„±ì´ ëœ ê²½ìš°ì˜ í…ŒìŠ¤íŠ¸ëŠ”?
+	//ìƒì„±ì´ ë˜ì§€ ì•Šì€ ê²½ìš°ëŠ”?
 	string inputStr(
 ",,,ref times\
 \nresources,sound,gun.mp3,1\
@@ -193,16 +193,16 @@ TEST(FileSaverÅ×½ºÆ®, DirCsvSaver){
 \n,txt,history.txt,3\
 \n,,log.txt,2");
 
-	//CÇ¥ÁØÀÇ fopen_sÀ» ¾²°í fclose¸¦ ¾²¸é ÁøÂ¥·Î ´İÈ÷±ä ÇÏÁö¸¸..
-	//À©µµ¿ì¸¸ÀÇ ¹¹½Ã±â°¡ Àû¿ëÀÌ ¾ÈµÇ¼­ Ãâ·Â µ¥ÀÌÅÍ¸¦ °íÃÄ¾ßµÈ´Ù. ¶§·ÁÃÄ!
-	//SDL_RW·ùÀÇ ÇÔ¼ö¸¦ ¾²¸é exeÁ¾·áÀü±îÁö´Â streamÀÌ ´İÈ÷Áö ¾Ê´Â°Å°°´Ù.
+	//Cí‘œì¤€ì˜ fopen_sì„ ì“°ê³  fcloseë¥¼ ì“°ë©´ ì§„ì§œë¡œ ë‹«íˆê¸´ í•˜ì§€ë§Œ..
+	//ìœˆë„ìš°ë§Œì˜ ë­ì‹œê¸°ê°€ ì ìš©ì´ ì•ˆë˜ì„œ ì¶œë ¥ ë°ì´í„°ë¥¼ ê³ ì³ì•¼ëœë‹¤. ë•Œë ¤ì³!
+	//SDL_RWë¥˜ì˜ í•¨ìˆ˜ë¥¼ ì“°ë©´ exeì¢…ë£Œì „ê¹Œì§€ëŠ” streamì´ ë‹«íˆì§€ ì•ŠëŠ”ê±°ê°™ë‹¤.
 	//CsvSaver csvWritter;
 	//bool temp = csvWritter.save(onlyDir, "output.csv", inputStr);
 	//ASSERT_TRUE(temp);
 
-	//°á±¹ Å×½ºÆ®¸¦ ÇÏ·Á¸é 
-	//1. ¾Æ·¡¸¦ ÁÖ¼®ÃÄ¼­ ÀÏ´Ü output.csv¸¦ »ı¼ºÇÏ°í
-	//2. 2¹øÂ° ½ÇÇà¿¡¼­ À§ÀÇ ³»¿ë¸¸ ÁÖ¼®À» ÃÄ¼­ ´Ù½Ã ½ÇÇàÇØ¾ßÇÑ´Ù... 
+	//ê²°êµ­ í…ŒìŠ¤íŠ¸ë¥¼ í•˜ë ¤ë©´ 
+	//1. ì•„ë˜ë¥¼ ì£¼ì„ì³ì„œ ì¼ë‹¨ output.csvë¥¼ ìƒì„±í•˜ê³ 
+	//2. 2ë²ˆì§¸ ì‹¤í–‰ì—ì„œ ìœ„ì˜ ë‚´ìš©ë§Œ ì£¼ì„ì„ ì³ì„œ ë‹¤ì‹œ ì‹¤í–‰í•´ì•¼í•œë‹¤... 
 	SDL_RWops* csvTest = SDL_RWFromFile(path.c_str(), "r");
 	
 	char buf[256] = { 0, };
@@ -216,13 +216,13 @@ TEST(FileSaverÅ×½ºÆ®, DirCsvSaver){
 	SDL_FreeRW(csvTest);
 
 	ASSERT_STREQ(inputStr.c_str(), outCsvStr.c_str());
-	//¾îÂ÷ÇÇ csvÆÄÀÏÀº ¿ÜºÎ¿¡¼­ ¿¢¼¿·Î º¸±âÀ§ÇØ »Ì´Â°Å±ä ÇÏÁö¸¸..
+	//ì–´ì°¨í”¼ csvíŒŒì¼ì€ ì™¸ë¶€ì—ì„œ ì—‘ì…€ë¡œ ë³´ê¸°ìœ„í•´ ë½‘ëŠ”ê±°ê¸´ í•˜ì§€ë§Œ..
 }
 */
 
 
 
-TEST(ResourceLibraryÅ×½ºÆ®, RLib»ı¼º_»ç¿ë_ÇØÁ¦){
+TEST(ResourceLibraryí…ŒìŠ¤íŠ¸, RLibìƒì„±_ì‚¬ìš©_í•´ì œ){
 	shared_ptr<Text> txt(new Text("Resource Library test"));
 	
 	ResourceLibrary& rl = RES_LIB;
@@ -251,13 +251,13 @@ TEST(ResourceLibraryÅ×½ºÆ®, RLib»ı¼º_»ç¿ë_ÇØÁ¦){
 	
 }
 
-TEST(ResourceLibraryÅ×½ºÆ®, fileLoader¿Í_¿¬°á){
+TEST(ResourceLibraryí…ŒìŠ¤íŠ¸, fileLoaderì™€_ì—°ê²°){
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\test.txt");
 
 	ifstream fin(path);
 	if(!fin) {
-		cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ!" << '\n';
+		cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨!" << '\n';
 	}
 	string expStr;
 	int c;
@@ -272,7 +272,7 @@ TEST(ResourceLibraryÅ×½ºÆ®, fileLoader¿Í_¿¬°á){
 
 	ASSERT_STREQ(expStr.c_str(), static_cast<Text*>(testStr.get())->c_str());
 	
-	//ÀÌÁ¦ ResourceLibrary¿¡ fileLoader¿¡¼­ ¸¸µç°É ³ÖÀ¸¼À
+	//ì´ì œ ResourceLibraryì— fileLoaderì—ì„œ ë§Œë“ ê±¸ ë„£ìœ¼ì…ˆ
 	ResourceLibrary& rl = RES_LIB;
 	try {
 	
@@ -294,7 +294,7 @@ TEST(ResourceLibraryÅ×½ºÆ®, fileLoader¿Í_¿¬°á){
 		err.showErrorReason();
 	}
 	
-	//EXPECT_FALSE(rl[Png(key)]); //´Ù¸¥ Çü½ÄÀ¸·ÎÀÇ ´Ù¿îÄ³½ºÆÃÀ» ¸·À»¼ö´Â ¾ø´Ù.
+	//EXPECT_FALSE(rl[Png(key)]); //ë‹¤ë¥¸ í˜•ì‹ìœ¼ë¡œì˜ ë‹¤ìš´ìºìŠ¤íŒ…ì„ ë§‰ì„ìˆ˜ëŠ” ì—†ë‹¤.
 
 	string pathPng(basePath + "resource\\sad frog.png");
 	PngLoader ploader(PROJECTOR.Renderer(), pathPng);
@@ -318,7 +318,7 @@ TEST(ResourceLibraryÅ×½ºÆ®, fileLoader¿Í_¿¬°á){
 
 
 #include "IniSerialBuffer.hpp"
-TEST(¸±¸®Áî¿ë_¸®¼Ò½º·Î´õ¸¦_À§ÇÑ, iniÀÌÁø_ÆÄÀÏ_¸¸µé±â){
+TEST(ë¦´ë¦¬ì¦ˆìš©_ë¦¬ì†ŒìŠ¤ë¡œë”ë¥¼_ìœ„í•œ, iniì´ì§„_íŒŒì¼_ë§Œë“¤ê¸°){
 	string resourceDir = SDL_GetBasePath();
 	resourceDir += "resource";
 
@@ -335,26 +335,26 @@ TEST(¸±¸®Áî¿ë_¸®¼Ò½º·Î´õ¸¦_À§ÇÑ, iniÀÌÁø_ÆÄÀÏ_¸¸µé±â){
 	biarchive >> inputBuf;
 	fin.close();
 
-	//serialization Å×½ºÆ®
+	//serialization í…ŒìŠ¤íŠ¸
 	vector<string>& ovector = outputBuf.StrVec();
 	vector<string>& ivector = inputBuf.StrVec();
 	for(int i = 0; i < ovector.size(); i++) {
 		ASSERT_STREQ(ovector[i].c_str(), ivector[i].c_str());
 	}
 
-	//»ı¼º ‰ç´ÂÁö Ãâ·Â.
+	//ìƒì„± ë¬ëŠ”ì§€ ì¶œë ¥.
 	inputBuf.printArr();
 }
 
 
-TEST(ÆÄÀÏ·ÎµåÄİ·¯_Å×½ºÆ®, ¸±¸®Áî){
-	//ÀÏ´Ü µğ¹ö±× ¸ğµå·Î ¸¸µé°í, ³ªÁß¿¡ ¸ÅÅ©·Î·Î ³ª´²ÁØ´Ù.
+TEST(íŒŒì¼ë¡œë“œì½œëŸ¬_í…ŒìŠ¤íŠ¸, ë¦´ë¦¬ì¦ˆ){
+	//ì¼ë‹¨ ë””ë²„ê·¸ ëª¨ë“œë¡œ ë§Œë“¤ê³ , ë‚˜ì¤‘ì— ë§¤í¬ë¡œë¡œ ë‚˜ëˆ ì¤€ë‹¤.
 	ResourceLibrary& resLib = RES_LIB;
 	ResourceLoadCaller& resLoadCaller = RES_LOAD_CALLER;	
-	//»ı¼ºÀ» ÇÏ¸é ¾È¿¡¼­ ÀÚµ¿À¸·Î ÆÄÀÏ ·ÎµåÇÏ¿© ¸®¼Ò½º¶óÀÌºê·¯¸®¿¡ ²È¾ÆÁØ´Ù.
-	//HitBox.as, smile.bmp, output.csv¿¡ ´ëÇÑ ¿¹¿Ü¸¦ ÄÜ¼Ö¿¡ Ãâ·ÂÇÏ¶ó.
+	//ìƒì„±ì„ í•˜ë©´ ì•ˆì—ì„œ ìë™ìœ¼ë¡œ íŒŒì¼ ë¡œë“œí•˜ì—¬ ë¦¬ì†ŒìŠ¤ë¼ì´ë¸ŒëŸ¬ë¦¬ì— ê½‚ì•„ì¤€ë‹¤.
+	//HitBox.as, smile.bmp, output.csvì— ëŒ€í•œ ì˜ˆì™¸ë¥¼ ì½˜ì†”ì— ì¶œë ¥í•˜ë¼.
 	
-	//Á¦´ë·Î µé¾î´Â °¬´Ï?
+	//ì œëŒ€ë¡œ ë“¤ì–´ëŠ” ê°”ë‹ˆ?
 	hash_key ani("animation.png");
 	hash_key full("full.png");
 	hash_key test("test.txt");
@@ -363,12 +363,12 @@ TEST(ÆÄÀÏ·ÎµåÄİ·¯_Å×½ºÆ®, ¸±¸®Áî){
 	EXPECT_TRUE(resLib[Png(full)]);
 	EXPECT_TRUE(resLib[Text(test)]);
 
-	//Á¦´ë·Î »ı¼º‰ç³Ä?
+	//ì œëŒ€ë¡œ ìƒì„±ë¬ëƒ?
 	string resourceDir = SDL_GetBasePath();
 	resourceDir += "resource\\test.txt";
 	ifstream fin(resourceDir);
 	if(!fin) {
-		cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ!" << '\n';
+		cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨!" << '\n';
 	}
 	
 	string testStr;
@@ -379,10 +379,10 @@ TEST(ÆÄÀÏ·ÎµåÄİ·¯_Å×½ºÆ®, ¸±¸®Áî){
 	
 	fin.close();
 	
-	//Txt ÆÄÀÏ È®ÀÎ
+	//Txt íŒŒì¼ í™•ì¸
 	ASSERT_STREQ(testStr.c_str(), resLib[Text(test)]->c_str());
 
-	//Png ÆÄÀÏ È®ÀÎ
+	//Png íŒŒì¼ í™•ì¸
 	SDL_Texture* tex1 = resLib[Png(full)]->Texture().get();
 	SDL_Rect dst1;	dst1.x = 0;	dst1.y = 0;	dst1.w = 300;	dst1.h = 300;
 
@@ -428,23 +428,23 @@ SDL_Texture* renderText(const wstring& message,
 #include <cstdlib>
 #include <atlconv.h>
 
-TEST(ÇĞ½ÀÅ×½ºÆ®, SDL_ttf¿Í_À¯´ÏÄÚµåº¯È¯){
-	//stringÀ» wstringÀ¸·Î ¹Ù²Ù´Â ÇÔ¼ö´Â... 
-	char* ass = "assÇÏÇÏ ¿ç·Î";
+TEST(í•™ìŠµí…ŒìŠ¤íŠ¸, SDL_ttfì™€_ìœ ë‹ˆì½”ë“œë³€í™˜){
+	//stringì„ wstringìœ¼ë¡œ ë°”ê¾¸ëŠ” í•¨ìˆ˜ëŠ”... 
+	char* ass = "assí•˜í•˜ ìšœë¡œ";
 
 	wchar_t wassc[30] = { 0, };
 	size_t length = strlen(ass);
 	mbstowcs_s(&length, wassc, ass, length);
 	wstring was(wassc);
 
-	wstring msg(L"À¯´ÏÄÚµå ¸¸µç »õ³¢µé ¾Ö¹Ì´Â ÀÌ¹Ì Á×¾ú°ÚÁö? ¾Æ! ³»°¡º´½ÅÀÌ´Ù");
+	wstring msg(L"ìœ ë‹ˆì½”ë“œ ë§Œë“  ìƒˆë¼ë“¤ ì• ë¯¸ëŠ” ì´ë¯¸ ì£½ì—ˆê² ì§€? ì•„! ë‚´ê°€ë³‘ì‹ ì´ë‹¤");
 	cout << "---";
 	wcout << msg.c_str();
-	//wstring msg = converter.from_bytes(rlText.getString()); char´Â ¾î¶»°Ô wchar·Î ¹Ù²Ù³ª?
+	//wstring msg = converter.from_bytes(rlText.getString()); charëŠ” ì–´ë–»ê²Œ wcharë¡œ ë°”ê¾¸ë‚˜?
 
-	//ÀÌ·¸°Ô ÇÏ¸é char¸¦ wchar_t·Î ¹Ù²Ü ¼ö ÀÖ´Ù!
-	//³ªÁß¿¡ ¾µ ¶§, Á¦´ë·Î ¾Ë°í ½á¶ó. .....
-	string hang("ÇÑ±ÛÀÌ ¾È ³ª¿Ã><ÅÙµ¥?");
+	//ì´ë ‡ê²Œ í•˜ë©´ charë¥¼ wchar_të¡œ ë°”ê¿€ ìˆ˜ ìˆë‹¤!
+	//ë‚˜ì¤‘ì— ì“¸ ë•Œ, ì œëŒ€ë¡œ ì•Œê³  ì¨ë¼. .....
+	string hang("í•œê¸€ì´ ì•ˆ ë‚˜ì˜¬><í…ë°?");
 	wchar_t strUnicode[256] = { 0, };
 	char	strMultibyte[256] = { 0, };
 	strcpy_s(strMultibyte, 256, hang.c_str());
@@ -481,13 +481,13 @@ TEST(ÇĞ½ÀÅ×½ºÆ®, SDL_ttf¿Í_À¯´ÏÄÚµåº¯È¯){
 #include "DisplayObject.hpp"
 #include "SimpleSprite.hpp"
 
-TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
-	//Png·Î ¸¸µç´Ù.
-	//Ãß»óÅ¬·¡½º DisplayObject¸¦ »ó¼ÓÇÑ´Ù.
+TEST(ì‹±ê¸€í†¤ì˜ì¡´_ë‹¨ìœ„í…ŒìŠ¤íŠ¸, SimpleSprite){
+	//Pngë¡œ ë§Œë“ ë‹¤.
+	//ì¶”ìƒí´ë˜ìŠ¤ DisplayObjectë¥¼ ìƒì†í•œë‹¤.
 	hash_key key("bird.png");
 	shared_ptr<Png> ppng = RES_LIB[Png(key)];
 	DisplayObject* sims = new SimpleSprite(ppng, PROJECTOR.Renderer(), 600, 600, 300, 300, 90);
-	//ÀÚ±â ÀÚ½ÅÀ» ·»´õ¸µÇÒ ¼ö ÀÖ´Ù.
+	//ìê¸° ìì‹ ì„ ë Œë”ë§í•  ìˆ˜ ìˆë‹¤.
 	sims->renderCopy();
 	PROJECTOR.renderPresent();
 
@@ -496,7 +496,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 
 	/*
 	
-	//¾ËÆÄ ¼öÁ¤À» ÇÒ ¼ö ÀÖ´Ù. 
+	//ì•ŒíŒŒ ìˆ˜ì •ì„ í•  ìˆ˜ ìˆë‹¤. 
 	SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 
 	sims->Alpha(50);
@@ -506,7 +506,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 	SDL_Delay(1000);
 	sims->Alpha(255);
 
-	//r,g,b º¯ÇüÀ» ÇÒ ¼ö ÀÖ´Ù.
+	//r,g,b ë³€í˜•ì„ í•  ìˆ˜ ìˆë‹¤.
 	SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 	sims->R(50);
 	sims->renderCopy();
@@ -599,7 +599,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 
 	
 
-	// getter Å×½ºÆ®
+	// getter í…ŒìŠ¤íŠ¸
 	int x = 300;	int y = 100;
 	int w = 300;	int h = 250;
 	SDL_RendererFlip f = SDL_FLIP_HORIZONTAL;
@@ -629,14 +629,14 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 	ASSERT_TRUE(sims->CenterX() == w / 2);
 	ASSERT_TRUE(sims->CenterY() == h / 2);
 
-	//°¢µµ¸¦ º¯ÇüÇÏ¿© È¸Àü½ÃÅ³ ¼ö ÀÖ´Ù
+	//ê°ë„ë¥¼ ë³€í˜•í•˜ì—¬ íšŒì „ì‹œí‚¬ ìˆ˜ ìˆë‹¤
 	for(int i = 0; i < 100; i++) {
 		sims->renderCopy();
 		PROJECTOR.renderPresent();
 		sims->Angle(sims->Angle() + 10);
 	}
 	
-	//È¸Àü Áß½ÉÀ» ¹Ù²Ü ¼ö ÀÖ´Ù.
+	//íšŒì „ ì¤‘ì‹¬ì„ ë°”ê¿€ ìˆ˜ ìˆë‹¤.
 	sims->CenterXY(0,0);
 	for(int i = 0; i < 100; i++) {
 		sims->renderCopy();
@@ -645,7 +645,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 	}
 
 
-	//DisplayObject 2°³ ÀÌ»ó Å×½ºÆ®: ´Ù¸¥ ÅØ½ºÃÄ
+	//DisplayObject 2ê°œ ì´ìƒ í…ŒìŠ¤íŠ¸: ë‹¤ë¥¸ í…ìŠ¤ì³
 	SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 	sims->CenterXY(w/2,h/2);
 	//sims->setRGB(255, 255, 255);
@@ -667,7 +667,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 
 	SDL_Delay(1000);
 
-	//DisplayObject 2°³ ÀÌ»ó Å×½ºÆ®: ÅØ½ºÃÄ °øÀ¯
+	//DisplayObject 2ê°œ ì´ìƒ í…ŒìŠ¤íŠ¸: í…ìŠ¤ì³ ê³µìœ 
 	DisplayObject* sims2 = new SimpleSprite(ppng, PROJECTOR.Renderer(), 400, 250, 200, 200);
 	
 	SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
@@ -685,19 +685,19 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, SimpleSprite){
 #include "DisplayObjectContainer.hpp"
 #include "Sprite.hpp"
 
-TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
-	//pDoc·Î ÀúÀåµÇ¾î ÀÖ´Â°É ¾î¶»°Ô addChild°°Àº°Å ¾²³Ä?
-	//¾îÂ¼±ä! °Á doc¸¦ ¾²´Â°ÅÁö!
+TEST(ì‹±ê¸€í†¤ì˜ì¡´_ë‹¨ìœ„í…ŒìŠ¤íŠ¸, DisplayObjectContainer){
+	//pDocë¡œ ì €ì¥ë˜ì–´ ìˆëŠ”ê±¸ ì–´ë–»ê²Œ addChildê°™ì€ê±° ì“°ëƒ?
+	//ì–´ì©Œê¸´! ê± docë¥¼ ì“°ëŠ”ê±°ì§€!
 	try 
 	{
 		hash_key key("bird.png");
 		shared_ptr<Png> pbird = RES_LIB[Png(key)];
 
-		// DisplayObjectContainer´Â DisplayObject¸¦ »ó¼ÓÇÑ´Ù.
+		// DisplayObjectContainerëŠ” DisplayObjectë¥¼ ìƒì†í•œë‹¤.
 		shared_ptr<DisplayObjectContainer> docBird( new Sprite(pbird,PROJECTOR.Renderer(), 0.5,0.5, 300,400, 200,400 ) );
 		DisplayObject* pDoc = docBird.get();
 		/*
-		// DOC°¡ Á¤»óÀûÀ¸·Î DO¿Í ±¸ºĞ¾øÀÌ ·»´õ¸µÀÌ µÇ´ÂÁö¸¸ Ã¼Å©. Àç±ÍÀû ·»´õ¸µÀº ³ªÁß¿¡.
+		// DOCê°€ ì •ìƒì ìœ¼ë¡œ DOì™€ êµ¬ë¶„ì—†ì´ ë Œë”ë§ì´ ë˜ëŠ”ì§€ë§Œ ì²´í¬. ì¬ê·€ì  ë Œë”ë§ì€ ë‚˜ì¤‘ì—.
 		SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 		pDoc->renderCopy();
 		PROJECTOR.renderPresent();
@@ -705,7 +705,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		*/
 		
 
-		// ÀÚ½Ä DO ³Ö±â.
+		// ìì‹ DO ë„£ê¸°.
 		hash_key keyCh1("ch1.png");
 		hash_key keyCh2("ch2.png");
 		hash_key keyCh3("ch3.png");
@@ -735,7 +735,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		shared_ptr<DisplayObject> doc_ch3( new Sprite(pCh3, PROJECTOR.Renderer(), 0, 0) );
 		shared_ptr<DisplayObject> doc_ch4( new Sprite(pCh4, PROJECTOR.Renderer(), 0, 0) );
 		
-		docBird->addChild(docCh1);	//addChild´Â list¿¡ È£ÃâµÈ ¼ø¼­´ë·Î ÀÚ½ÄÀ» ³Ö´Â´Ù.
+		docBird->addChild(docCh1);	//addChildëŠ” listì— í˜¸ì¶œëœ ìˆœì„œëŒ€ë¡œ ìì‹ì„ ë„£ëŠ”ë‹¤.
 		docCh1->addChild(docCh2);
 		docCh2->addChild(docCh3);
 		docBird->addChild(docAl1);
@@ -747,12 +747,12 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		//docAng1->addChild(doc_ch3);
 		//docAng1->addChild(doc_ch4);
 
-		//publicÈ­ Å×½ºÆ®µé - TODO: ³ªÁß¿¡ ÁÖ¼®Ä¥°Í.
+		//publicí™” í…ŒìŠ¤íŠ¸ë“¤ - TODO: ë‚˜ì¤‘ì— ì£¼ì„ì¹ ê²ƒ.
 		SDL_RenderClear(PROJECTOR.Renderer().get());
 		docBird->renderCopy();
 		PROJECTOR.renderPresent();
 		/*
-		printf("È¸Àüº¯È¯ Àü");
+		printf("íšŒì „ë³€í™˜ ì „");
 		printf("\n\n---- docBird ----\n");
 		EXPECT_EQ(200,docBird->renderRect.x);
 		EXPECT_EQ(200,docBird->renderRect.y);
@@ -826,21 +826,21 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		EXPECT_EQ(500, docCh3->centerForChild.y);
 		*/
 		/*
-		//´Ù¸¥ ±¸Á¶ Å×½ºÆ® root-ÀÚ½Ä-ÀÚ½Ä-ÀÚ½Ä... ±¸Á¶
-		//¾Æ·¡·Î ±í°Ô ÆÛÁö´Â ±¸Á¶µµ x,y,w,,hº¯È­¿¡¼­´Â 
-		//¿·À¸·Î ÀÚ½ÄÀÌ ÆÛÁö´Â ±¸Á¶¿Í ¾Æ¹«·± Â÷ÀÌ°¡ ¾ø¾î¾ßÇÑ´Ù.. 
+		//ë‹¤ë¥¸ êµ¬ì¡° í…ŒìŠ¤íŠ¸ root-ìì‹-ìì‹-ìì‹... êµ¬ì¡°
+		//ì•„ë˜ë¡œ ê¹Šê²Œ í¼ì§€ëŠ” êµ¬ì¡°ë„ x,y,w,,hë³€í™”ì—ì„œëŠ” 
+		//ì˜†ìœ¼ë¡œ ìì‹ì´ í¼ì§€ëŠ” êµ¬ì¡°ì™€ ì•„ë¬´ëŸ° ì°¨ì´ê°€ ì—†ì–´ì•¼í•œë‹¤.. 
 		docBird->addChild(docCh1, 100, 100);
 		docCh1->addChild(docCh2, 100, 100);
 
 		docCh2->addChild(docCh3, 100, 100);
 		docCh3->addChild(docCh4, 100, 100);
 		*/
-		//¸¸¾à¿¡ ÇÏ³ªÀÇ DO³ª DOC¸¦ µÎ°³ ÀÌ»óÀÇ ºÎ¸ğ°¡ °¡Áö¸é ¾î¶»°Ô µÇÁö?
-		//°¡Áú ¼ö ¾ø°Ô ÇØ¾ßÁö.
-		//¾î¶»°Ô Ã¼Å©ÇÑ´ã?
+		//ë§Œì•½ì— í•˜ë‚˜ì˜ DOë‚˜ DOCë¥¼ ë‘ê°œ ì´ìƒì˜ ë¶€ëª¨ê°€ ê°€ì§€ë©´ ì–´ë–»ê²Œ ë˜ì§€?
+		//ê°€ì§ˆ ìˆ˜ ì—†ê²Œ í•´ì•¼ì§€.
+		//ì–´ë–»ê²Œ ì²´í¬í•œë‹´?
 
 		/*
-		// ÀÚ½Ä DO¸¦ list¿¡¼­ ²¨³»º¸±â
+		// ìì‹ DOë¥¼ listì—ì„œ êº¼ë‚´ë³´ê¸°
 		shared_ptr<DisplayObject> returned( docBird->getChildAt(0) );
 		SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 		returned->renderCopy();
@@ -848,25 +848,25 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		ASSERT_TRUE(returned.get() == docCh1.get());
 		returned.reset();
 		
-		// addChild´Â list¿¡ È£ÃâµÈ ¼ø¼­´ë·Î ÀÚ½ÄÀ» ³Ö´Â´Ù.
+		// addChildëŠ” listì— í˜¸ì¶œëœ ìˆœì„œëŒ€ë¡œ ìì‹ì„ ë„£ëŠ”ë‹¤.
 		ASSERT_TRUE(docBird->getChildAt(0).get() == docCh1.get());
 		ASSERT_TRUE(docBird->getChildAt(1).get() == docCh2.get());
 		ASSERT_TRUE(docBird->getChildAt(2).get() == docCh3.get());
 		ASSERT_TRUE(docBird->getChildAt(3).get() == docCh4.get());
 		*/
 
-		// DO¿¡ Àç±ÍÀû ÁÂÇ¥°è µµÀÔ(ºÎ¸ğÀÇ center(X,Y) = ÀÚ½ÄÀÇ (0,0))
+		// DOì— ì¬ê·€ì  ì¢Œí‘œê³„ ë„ì…(ë¶€ëª¨ì˜ center(X,Y) = ìì‹ì˜ (0,0))
 		//1_(x,y)
-		// 1.±âº» addChild
+		// 1.ê¸°ë³¸ addChild
 		//ASSERT_TRUE(docCh2->X() == 0);
 		//ASSERT_TRUE(docCh2->Y() == 0);
-		// 2.ÁÂÇ¥ ÁÖ´Â addChild
+		// 2.ì¢Œí‘œ ì£¼ëŠ” addChild
 		ASSERT_TRUE(docAng1->X() == docAng1->X());
 		ASSERT_TRUE(docAng2->Y() == docAng2->Y());
-		// 3.ºÎ¸ğ.center¸¦ ¿øÁ¡À¸·Î »ïÀ» ¶§ ´Ş¶óÁö´Â ÁÂÇ¥
+		// 3.ë¶€ëª¨.centerë¥¼ ì›ì ìœ¼ë¡œ ì‚¼ì„ ë•Œ ë‹¬ë¼ì§€ëŠ” ì¢Œí‘œ
 		
 		//2_(w,h)
-		// 0.ÃÖÃÊÀÇ w,h´Â png => SDL_TextureÀÇ w,h´Ù.
+		// 0.ìµœì´ˆì˜ w,hëŠ” png => SDL_Textureì˜ w,hë‹¤.
 		int w2 = 200, w3 = 200;
 		hash_key cod("codesafer.png");
 		shared_ptr<Png> pcos = RES_LIB[Png(cod)];
@@ -876,7 +876,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		SDL_QueryTexture(pcos->Texture().get(), nullptr, nullptr, &_w, &_h);
 		ASSERT_TRUE( _w == origin->TextureW() );
 		ASSERT_TRUE( _h == origin->TextureH() );
-		// 1.DO°¡ ÃÖÃÊÀÇ w,h°¡ ¾Æ´Ñ °ªÀ» ¾²¸é ±× ºñÀ²À» ÀúÀåÇÑ´Ù.
+		// 1.DOê°€ ìµœì´ˆì˜ w,hê°€ ì•„ë‹Œ ê°’ì„ ì“°ë©´ ê·¸ ë¹„ìœ¨ì„ ì €ì¥í•œë‹¤.
 		ASSERT_TRUE( (double)w2 / (double)_w  ==  whchange->RatioW() );
 		ASSERT_TRUE( origin->RatioH() == (double)_h / origin->H() );
 		/*SDL_RenderClear(PROJECTOR.Renderer().get());
@@ -886,11 +886,11 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		*/
 
 		/*
-			//±âÇÏ·»´õ¸µ
+			//ê¸°í•˜ë Œë”ë§
 			SDL_SetRenderDrawColor(PROJECTOR.Renderer().get(), 0xFF, 0x00, 0x00, 0x00);
-		//SDL_RenderClear(PROJECTOR.Renderer().get());//Àü¿¡ ¼³Á¤ÇÑ drawColor·Î Áö¿î´Ù.
+		//SDL_RenderClear(PROJECTOR.Renderer().get());//ì „ì— ì„¤ì •í•œ drawColorë¡œ ì§€ìš´ë‹¤.
 		//SDL_SetRenderDrawColor(PROJECTOR.Renderer().get(), 0xFF, 0xFF, 0xFF, 0xFF);
-		//Àü¿¡ ¼³Á¤ÇÑ drawColor·Î Á¡À» Âï´Â´Ù.
+		//ì „ì— ì„¤ì •í•œ drawColorë¡œ ì ì„ ì°ëŠ”ë‹¤.
 		SDL_Rect fillrect = { 400, 400, 5, 5 };
 		SDL_RenderFillRect(PROJECTOR.Renderer().get(), &fillrect);
 		PROJECTOR.renderPresent();
@@ -898,9 +898,9 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		SDL_SetRenderDrawColor(PROJECTOR.Renderer().get(), 0x00, 0x00, 0x00, 0x00);
 		*/
 
-		// 2.ÀÚ½ÄµéÀº ±× ºñÀ²¿¡ µû¶ó ·»´õ¸µµÈ´Ù. Å©±â¸¦ ´Ã¸®¸é ÀÚ½Äµéµµ ´Ù°°ÀÌ ´Ã¾î³ª¾ßÇÑ´Ù.
-		//   Àç±ÍÀû º¯È­µµ °°ÀÌ Å×½ºÆ®...
-		//ÀÚ½Äº¯È­´Â ÀÚ½ÄÀÇÀÚ½Ä±îÁö.
+		// 2.ìì‹ë“¤ì€ ê·¸ ë¹„ìœ¨ì— ë”°ë¼ ë Œë”ë§ëœë‹¤. í¬ê¸°ë¥¼ ëŠ˜ë¦¬ë©´ ìì‹ë“¤ë„ ë‹¤ê°™ì´ ëŠ˜ì–´ë‚˜ì•¼í•œë‹¤.
+		//   ì¬ê·€ì  ë³€í™”ë„ ê°™ì´ í…ŒìŠ¤íŠ¸...
+		//ìì‹ë³€í™”ëŠ” ìì‹ì˜ìì‹ê¹Œì§€.
 	
 		for(int i = 0; i < 40; i++) {
 			SDL_RenderClear(PROJECTOR.Renderer().get());
@@ -921,7 +921,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 			PROJECTOR.renderPresent();
 		}
 		
-		//·çÆ®º¯È­
+		//ë£¨íŠ¸ë³€í™”
 		for(int i = 0; i < 50; i++) {
 			SDL_RenderClear(PROJECTOR.Renderer().get());
 			docBird->W(docBird->W() - i);
@@ -943,26 +943,26 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		}
 		
 		
-		//3. 0.0ÀÌ ¾Æ´Ñ angle·Î ÃÊ±âÈ­µÈ ºÎ¸ğ.
+		//3. 0.0ì´ ì•„ë‹Œ angleë¡œ ì´ˆê¸°í™”ëœ ë¶€ëª¨.
 		// look & feel !!
 		SDL_RenderClear(PROJECTOR.Renderer().get());
 		docBird->renderCopy();
 		PROJECTOR.renderPresent();
 		//SDL_Delay(1000);
-		//3.1 ºÎ¸ğÀÇ center°¡ ¹Ù²ï °æ¿ì
+		//3.1 ë¶€ëª¨ì˜ centerê°€ ë°”ë€ ê²½ìš°
 		SDL_RenderClear(PROJECTOR.Renderer().get());
 		docBird->renderCopy();
 		PROJECTOR.renderPresent();
 		//SDL_Delay(4000);
 		
 		
-		//·»´õ¸µÀº ¼ø¼­°¡ÀÖ°í/Àç±ÍÀûÀÌ´Ù
-		// 1.(listÀÇ ¿À¸§Â÷¼øÀ¸·Î)µé¾î°£ ¼ø¼­´ë·Î ·»´õ¸µµÈ´Ù.
+		//ë Œë”ë§ì€ ìˆœì„œê°€ìˆê³ /ì¬ê·€ì ì´ë‹¤
+		// 1.(listì˜ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ)ë“¤ì–´ê°„ ìˆœì„œëŒ€ë¡œ ë Œë”ë§ëœë‹¤.
 		SDL_RenderClear(PROJECTOR.Renderer().get());	PROJECTOR.renderPresent();	SDL_Delay(200);
 		docBird->renderCopy();
 		PROJECTOR.renderPresent();
 		
-		// Àç±ÍÀûÀÌ°í µ¿ÀûÀÎ º¯È­
+		// ì¬ê·€ì ì´ê³  ë™ì ì¸ ë³€í™”
 		//1. x,y
 		
 		for(int i = 0; i < 50; i++) {
@@ -985,7 +985,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 		}
 		
 		
-		//2. w,h(À§¿¡¼­ ÇßÀ½)
+		//2. w,h(ìœ„ì—ì„œ í–ˆìŒ)
 		//3. angle
 		//docBird->Angle(45);
 		
@@ -994,7 +994,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 			docBird->Angle(docBird->Angle() + 1);
 				docBird->WH(docBird->W() - 1, docBird->H() - 1);
 			docBird->renderCopy();
-			//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//¿øÁ¡ÀÌ Á¤È®ÇÏ´Ù....
+			//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//ì›ì ì´ ì •í™•í•˜ë‹¤....
 			//docAng1->renderCopy();
 			//docAng2->XY(docCh2->centerForChild.x, docCh2->centerForChild.y);
 			//docAng2->renderCopy();
@@ -1003,7 +1003,7 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 
 		SDL_RenderClear(PROJECTOR.Renderer().get());
 		docBird->renderCopy();
-		//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//¿øÁ¡ÀÌ Á¤È®ÇÏ´Ù....
+		//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//ì›ì ì´ ì •í™•í•˜ë‹¤....
 		//docAng1->renderCopy();
 		//docAng2->XY(docCh2->centerForChild.x, docCh2->centerForChild.y);
 		//docAng2->renderCopy();
@@ -1028,43 +1028,43 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 			docBird->Angle(docBird->Angle() + 1);
 			docBird->WH(docBird->W() + 1, docBird->H() + 1);
 			docBird->renderCopy();
-			//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//¿øÁ¡ÀÌ Á¤È®ÇÏ´Ù....
+			//docAng1->XY(docCh3->centerForChild.x, docCh3->centerForChild.y);	//ì›ì ì´ ì •í™•í•˜ë‹¤....
 			//docAng1->renderCopy();
 			//docAng2->XY(docCh2->centerForChild.x, docCh2->centerForChild.y);
 			//docAng2->renderCopy();
 			PROJECTOR.renderPresent();
 		}
 
-		//°¢À» µ¹¸° »óÅÂ¿¡¼­ º¯È­µµ Å×½ºÆ®ÇØº¸¾Æ¾ß ÇÑ´Ù.
-		//90µµ¿¡¼­ ±Ô¸ğ¸¦ ¹Ù²Ù¸é ¾î¶»°Ô µÇ´Â°¡?
+		//ê°ì„ ëŒë¦° ìƒíƒœì—ì„œ ë³€í™”ë„ í…ŒìŠ¤íŠ¸í•´ë³´ì•„ì•¼ í•œë‹¤.
+		//90ë„ì—ì„œ ê·œëª¨ë¥¼ ë°”ê¾¸ë©´ ì–´ë–»ê²Œ ë˜ëŠ”ê°€?
 	
 		//4. alpha
-		//0~255°ª¸¸ ¹Ş¾ÆµéÀÎ´Ù. ¹üÀ§¸¦ ¹ş¾î³ª¸é 0ÀÌ³ª 255·Î ¸¸µç´Ù.
+		//0~255ê°’ë§Œ ë°›ì•„ë“¤ì¸ë‹¤. ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ë©´ 0ì´ë‚˜ 255ë¡œ ë§Œë“ ë‹¤.
 		docAl1->Alpha(10000);
 		ASSERT_EQ(255, docAl1->Alpha());
 		docAl1->Alpha(-10000);
 		ASSERT_EQ(0, docAl1->Alpha());
-		//ÀÏ¹İÀûÀÎ °ª ´ëÀÔ
+		//ì¼ë°˜ì ì¸ ê°’ ëŒ€ì…
 		docAl1->Alpha(100);
 		ASSERT_EQ(100, docAl1->Alpha());
-		//ÃÊ±â·Î µ¹¸®±â
+		//ì´ˆê¸°ë¡œ ëŒë¦¬ê¸°
 		docAl1->Alpha(255);
 		ASSERT_EQ(255, docAl1->Alpha());
-		//ÀÚ½Ä±îÁö ¿µÇâÀÌ ÀÌ¾îÁø´Ù.(ÀÚ½Ä ´õ Ãß°¡ÇÏ°í Å×½ºÆ®µµ ½á³õÀ» °Í)
-			//renderAlphaÃß°¡ÇÏ±â... ±×¸®°í rgbµµ ÀÌ°Å¶û ºñ½ÁÇÏ°Ô ÇÏ¸é µÉµí.
+		//ìì‹ê¹Œì§€ ì˜í–¥ì´ ì´ì–´ì§„ë‹¤.(ìì‹ ë” ì¶”ê°€í•˜ê³  í…ŒìŠ¤íŠ¸ë„ ì¨ë†“ì„ ê²ƒ)
+			//renderAlphaì¶”ê°€í•˜ê¸°... ê·¸ë¦¬ê³  rgbë„ ì´ê±°ë‘ ë¹„ìŠ·í•˜ê²Œ í•˜ë©´ ë ë“¯.
 		
 	
 		//5. r,g,b
 
-		//»èÁ¦ÇÒ ¼ö ÀÖ´Ù
+		//ì‚­ì œí•  ìˆ˜ ìˆë‹¤
 		//
 
-		// ÀÎµ¦½º¸¦ ³Ñ¾î¼­´Â °æ¿ì ¿¹¿Ü
+		// ì¸ë±ìŠ¤ë¥¼ ë„˜ì–´ì„œëŠ” ê²½ìš° ì˜ˆì™¸
 		//docBird->getChildAt(1);
-		// ÀÎµ¦½ºÀÇ weak_ptrÀÌ °¡¸®Å°´ø °´Ã¼°¡ ¾ø°Å³ª ÇØÁ¦µÈ °æ¿ì ¿¹¿Ü
+		// ì¸ë±ìŠ¤ì˜ weak_ptrì´ ê°€ë¦¬í‚¤ë˜ ê°ì²´ê°€ ì—†ê±°ë‚˜ í•´ì œëœ ê²½ìš° ì˜ˆì™¸
 		//docCh1.reset();
 		//docBird->getChildAt(0);
-		// addChild(child)¿¡¼­ nullptrÀ» °¡¸®Å°´Â child¸¦ ³ÖÀº °æ¿ì.
+		// addChild(child)ì—ì„œ nullptrì„ ê°€ë¦¬í‚¤ëŠ” childë¥¼ ë„£ì€ ê²½ìš°.
 		//shared_ptr<DisplayObject> noObj(nullptr);
 		//docBird->addChild(noObj);
 	}
@@ -1076,27 +1076,27 @@ TEST(½Ì±ÛÅæÀÇÁ¸_´ÜÀ§Å×½ºÆ®, DisplayObjectContainer){
 	}
 	
 	
-	//iterater¸¦ º¸°üÇØ¼­ ºü¸¥ Á¢±ÙÀÌ °¡´ÉÄÉ ÇÏÀÚ.
-	//ÀÚ½Ä DOµµ ÇÔ²² ·»´õ¸µ
+	//iteraterë¥¼ ë³´ê´€í•´ì„œ ë¹ ë¥¸ ì ‘ê·¼ì´ ê°€ëŠ¥ì¼€ í•˜ì.
+	//ìì‹ DOë„ í•¨ê»˜ ë Œë”ë§
 
 }
 
-TEST(ÅëÇÕÅ×½ºÆ®, Projector¿Íroot³ëµå){
-	//³ªÁß¿¡ ÇØ..
-	//°á±¹ DOC¸¦ ¸ğ¾Æ³õ´Â ÄÁÅ×ÀÌ³Ê´Â Projector°¡ °¡Áö±â·Î Çß´Ù.
-	//¾î¶² ÀÚ·á±¸Á¶¸¦ ¾µÁö´Â ±Û½ê? 
-	//°Ë»ö ¾ÈÇÏ°í »ğÀÔ »èÁ¦´Â ¸¹°í... forward_list°¡ ¾î¶²Áö.
+TEST(í†µí•©í…ŒìŠ¤íŠ¸, Projectorì™€rootë…¸ë“œ){
+	//ë‚˜ì¤‘ì— í•´..
+	//ê²°êµ­ DOCë¥¼ ëª¨ì•„ë†“ëŠ” ì»¨í…Œì´ë„ˆëŠ” Projectorê°€ ê°€ì§€ê¸°ë¡œ í–ˆë‹¤.
+	//ì–´ë–¤ ìë£Œêµ¬ì¡°ë¥¼ ì“¸ì§€ëŠ” ê¸€ì„? 
+	//ê²€ìƒ‰ ì•ˆí•˜ê³  ì‚½ì… ì‚­ì œëŠ” ë§ê³ ... forward_listê°€ ì–´ë–¤ì§€.
 }
 
 
 
 /*
-//¹öÆ°À» À§ÇÑ ÀÓ½Ã ÀÌº¥Æ® ½ÇÇè
-//ÀÌ°Å¿¡ ¿ÉÀú¹öÆĞÅÏÀ» ¾î¶»°Ô Àû¿ë½ÃÅ°¸é µÉ±î?
-//ÀÌ°Ô ±Û·Î¹ú ¸Ş½ÃÁö½Ã½ºÅÛ Å¬·¡½ºÀÇ ºÎºĞ ¾Æ´Ï³Ä?
-//¾Æ´Ï¸é ÀÎÇ²½Ã½ºÅÛ Å¬·¡½ºÀÇ ºÎºĞÀÎ°¡?
-//ÁÖÀÇ. ¹«ÇÑ ·çÇÁ ÀÖÀ½.
-TEST(¿¬±¸¹×½ÇÇè, ÀÌº¥Æ®Å¥_Ã³¸®·çÇÁ){
+//ë²„íŠ¼ì„ ìœ„í•œ ì„ì‹œ ì´ë²¤íŠ¸ ì‹¤í—˜
+//ì´ê±°ì— ì˜µì €ë²„íŒ¨í„´ì„ ì–´ë–»ê²Œ ì ìš©ì‹œí‚¤ë©´ ë ê¹Œ?
+//ì´ê²Œ ê¸€ë¡œë²Œ ë©”ì‹œì§€ì‹œìŠ¤í…œ í´ë˜ìŠ¤ì˜ ë¶€ë¶„ ì•„ë‹ˆëƒ?
+//ì•„ë‹ˆë©´ ì¸í’‹ì‹œìŠ¤í…œ í´ë˜ìŠ¤ì˜ ë¶€ë¶„ì¸ê°€?
+//ì£¼ì˜. ë¬´í•œ ë£¨í”„ ìˆìŒ.
+TEST(ì—°êµ¬ë°ì‹¤í—˜, ì´ë²¤íŠ¸í_ì²˜ë¦¬ë£¨í”„){
 	// main loop
 	bool quit = false;
 	SDL_Event e;
@@ -1106,23 +1106,23 @@ TEST(¿¬±¸¹×½ÇÇè, ÀÌº¥Æ®Å¥_Ã³¸®·çÇÁ){
 
 		while(SDL_PollEvent(&e)) {
 			if(e.type == SDL_QUIT) {
-				puts("´İ±â ´©¸§!");
+				puts("ë‹«ê¸° ëˆ„ë¦„!");
 				quit = true;
 			}
 			if(e.type == SDL_KEYDOWN) {
 				cout << "virtual key code	" << e.key.keysym.sym << endl;
 				cout << "physical key code	" << e.key.keysym.scancode << endl;
-				puts("Å°º¸µå ´©¸§!");
+				puts("í‚¤ë³´ë“œ ëˆ„ë¦„!");
 			}
 			if(e.type == SDL_MOUSEBUTTONDOWN) {
-				puts("¸¶¿ì½º ´©¸§!");
+				puts("ë§ˆìš°ìŠ¤ ëˆ„ë¦„!");
 				quit = true;
 			}
 		}
 	}
 }
 
-TEST(Á¾°áÅ×½ºÆ®, ½Ì±ÛÅæ){
+TEST(ì¢…ê²°í…ŒìŠ¤íŠ¸, ì‹±ê¸€í†¤){
 	PROJECTOR.destroyInstance();
 }
 */

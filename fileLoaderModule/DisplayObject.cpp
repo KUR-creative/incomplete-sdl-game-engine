@@ -12,7 +12,7 @@ void rotationTransform(double cirAngle,
 					   int srcX, int srcY,
 					   int& dstX, int& dstY);
 
-//»ı¼º½Ã¿¡ center¸¦ ¼±ÅÃÇÏ°Ô ÇÑ´Ù. ¹éºĞ·ü·Î w,h °ªÀ» Áà¼­...
+//ìƒì„±ì‹œì— centerë¥¼ ì„ íƒí•˜ê²Œ í•œë‹¤. ë°±ë¶„ë¥ ë¡œ w,h ê°’ì„ ì¤˜ì„œ...
 DisplayObject::DisplayObject(shared_ptr<SDL_Texture> tex,
 							 shared_ptr<SDL_Renderer> ren,	
 							 double centerRatioW, double centerRatioH,
@@ -28,27 +28,27 @@ DisplayObject::DisplayObject(shared_ptr<SDL_Texture> tex,
 							 parent(nullptr),
 							 centerRatioW(centerRatioW), centerRatioH(centerRatioH)
 {
-	//¿øº» textureÅ©±â ¾ò±â
+	//ì›ë³¸ textureí¬ê¸° ì–»ê¸°
 	if(SDL_QueryTexture(tex.get(), NULL, NULL, &textureW, &textureH) != 0) {
 		logSDLError("DisplayObject{ SDL_QueryTexture }");
 	}
-	//ÁÂÇ¥
+	//ì¢Œí‘œ
 	rect.x = x;
 	rect.y = y;
-	//°³³äÀû Å©±â
-	if( !(w && h) ) {//ÇÏ³ª¶óµµ 0ÀÌ¸é
+	//ê°œë…ì  í¬ê¸°
+	if( !(w && h) ) {//í•˜ë‚˜ë¼ë„ 0ì´ë©´
 		rect.w = textureW;
 		rect.h = textureH;
 	} else {
 		rect.w = w;		
 		rect.h = h;
 	}
-	//°³³äÀû ºñÀ²
+	//ê°œë…ì  ë¹„ìœ¨
 	ratioW = static_cast<double>(rect.w) / static_cast<double>(textureW);
 	ratioH = static_cast<double>(rect.h) / static_cast<double>(textureH);
 }
 
-//todo:publicÀÌ¶ó À§ÇèÇØ..°³¼±¹æ¹ıÀº ?
+//todo:publicì´ë¼ ìœ„í—˜í•´..ê°œì„ ë°©ë²•ì€ ?
 void DisplayObject::resetParent(DisplayObject* obj)
 {
 	parent = obj;
@@ -57,7 +57,7 @@ void DisplayObject::resetParent(DisplayObject* obj)
 void DisplayObject::renderCopy()
 {
 	resetRenderMember();
-#ifdef _DEBUG	//¾ğÁ¨°¡ µğ¹ö±×µµ resetParent¾Æ´Ï°í ±×.. ÃÖÀûÈ­ ºôµå¸¦ ¸î°³ °¡Á®¾ß ÇÒ µí. ·±Å¸ÀÓ¿¡µµ ÀÖÀ» ¼ö ÀÖÀ»Áöµµ..
+#ifdef _DEBUG	//ì–¸ì  ê°€ ë””ë²„ê·¸ë„ resetParentì•„ë‹ˆê³  ê·¸.. ìµœì í™” ë¹Œë“œë¥¼ ëª‡ê°œ ê°€ì ¸ì•¼ í•  ë“¯. ëŸ°íƒ€ì„ì—ë„ ìˆì„ ìˆ˜ ìˆì„ì§€ë„..
 	if(SDL_SetTextureColorMod(texture.get(), r, g, b)) {
 		logSDLError("DisplayObject::renderCopy() { SetTextureColorMod }");
 	}
@@ -76,50 +76,50 @@ void DisplayObject::renderCopy()
 #endif 
 }
 
-//È¸ÀüÁß½É º¸Á¤: SDL_RenderCopy¿¡¼­ ¾²ÀÌ´Â ÁÂÇ¥´Â SDL_Rect dstrectÀÇ ¿ŞÂÊ À§ ¸ğ¼­¸®(0.0)ÀÌ´Ù.
+//íšŒì „ì¤‘ì‹¬ ë³´ì •: SDL_RenderCopyì—ì„œ ì“°ì´ëŠ” ì¢Œí‘œëŠ” SDL_Rect dstrectì˜ ì™¼ìª½ ìœ„ ëª¨ì„œë¦¬(0.0)ì´ë‹¤.
 void DisplayObject::resetRenderMember()
 {
 	if(parent) {
-		//1.Å©±â, ºñÀ²
+		//1.í¬ê¸°, ë¹„ìœ¨
 		renderRatioW = parent->renderRatioW * ratioW;
 		renderRatioH = parent->renderRatioH * ratioH;
 
 		renderRect.w = renderRatioW * textureW;
 		renderRect.h = renderRatioH * textureH;
 
-		//2.Áß½É°ú È¸Àü
+		//2.ì¤‘ì‹¬ê³¼ íšŒì „
 		renderCenter.x = centerRatioW * renderRect.w;
 		renderCenter.y = centerRatioH * renderRect.h;
 
 		renderAngle = angle + parent->renderAngle;
 
-		//3.·»´õ¸µ¿øÁ¡ = ºÎ¸ğÀÇ ·»´õ¸µ¿øÁ¡°ú + ÀÚ½ÅÀÇ ÁÂÇ¥
+		//3.ë Œë”ë§ì›ì  = ë¶€ëª¨ì˜ ë Œë”ë§ì›ì ê³¼ + ìì‹ ì˜ ì¢Œí‘œ
 		centerForChild.x = parent->centerForChild.x + rect.x * renderRatioW;
 		centerForChild.y = parent->centerForChild.y + rect.y * renderRatioH;
-		//ÀÚ½Ä¿¡¼­ renderRect.x,y¸¦ È¸Àüº¯È¯ÇÏ¿© ±¸ÇÒ ¶§ ¿øÁ¡ÀÌ µÇ´Â ·»´õ¸µ ¿øÁ¡À» ±¸ÇÑ´Ù.
-		//ºÎ¸ğÀÇ ·»´õ¸µ¿øÁ¡centerForChild¸¦ ¿øÁ¡À¸·Î ºÎ¸ğÀÇ °¢¸¸Å­ È¸Àüº¯È¯.
+		//ìì‹ì—ì„œ renderRect.x,yë¥¼ íšŒì „ë³€í™˜í•˜ì—¬ êµ¬í•  ë•Œ ì›ì ì´ ë˜ëŠ” ë Œë”ë§ ì›ì ì„ êµ¬í•œë‹¤.
+		//ë¶€ëª¨ì˜ ë Œë”ë§ì›ì centerForChildë¥¼ ì›ì ìœ¼ë¡œ ë¶€ëª¨ì˜ ê°ë§Œí¼ íšŒì „ë³€í™˜.
 		rotationTransform(parent->renderAngle,
 						  parent->centerForChild.x, parent->centerForChild.y,
 						  centerForChild.x, centerForChild.y,
 						  centerForChild.x, centerForChild.y);
 
-		//4.·»´õ¸µ ÁÂÇ¥ = ºÎ¸ğ¿¡ ÀÇÇÑ ¿øÁ¡ º¸Á¤		+ ÀÚ½ÅÀÇ ÁÂÇ¥¸¸Å­ ´õÇØÁÖ±â	
+		//4.ë Œë”ë§ ì¢Œí‘œ = ë¶€ëª¨ì— ì˜í•œ ì›ì  ë³´ì •		+ ìì‹ ì˜ ì¢Œí‘œë§Œí¼ ë”í•´ì£¼ê¸°	
 		renderRect.x = parent->centerForChild.x + (rect.x * renderRatioW);
 		renderRect.y = parent->centerForChild.y + (rect.y * renderRatioH);
-		//renderCopy¿¡ ¾²ÀÏ renderRect.x,y¸¦ ±¸ÇÏ±â À§ÇÑ È¸Àüº¯È¯ 
-		//ºÎ¸ğÀÇ ·»´õ¸µ¿øÁ¡centerForChild¸¦ ¿øÁ¡À¸·Î ºÎ¸ğÀÇ °¢¸¸Å­ È¸Àüº¯È¯.
+		//renderCopyì— ì“°ì¼ renderRect.x,yë¥¼ êµ¬í•˜ê¸° ìœ„í•œ íšŒì „ë³€í™˜ 
+		//ë¶€ëª¨ì˜ ë Œë”ë§ì›ì centerForChildë¥¼ ì›ì ìœ¼ë¡œ ë¶€ëª¨ì˜ ê°ë§Œí¼ íšŒì „ë³€í™˜.
 		rotationTransform(parent->renderAngle,
 						  parent->centerForChild.x, parent->centerForChild.y,
 						  renderRect.x, renderRect.y,
 						  renderRect.x, renderRect.y);
-		//È¸Àüº¯È¯µÈ ÁÂÇ¥¿¡ ¿øÁ¡(parent->centerForChild)¿¡¼­ ¿ŞÂÊ ¸ğ¼­¸® ³¡(renderCopy¿¡ ¾²ÀÌ´Â Á¡)À¸·Î º¸Á¤
-		//¿øÁ¡¿¡¼­ ÅØ½ºÃÄ ¸ğ¼­¸® ³¡(renderCopy¿¡ ¾²ÀÌ´Â Á¡)±îÁöÀÇ ±æÀÌ´Â Ç×»ó ÀÏÁ¤ÇØ¾ß ÇÏ±â¿¡ È¸Àüº¯È¯ÀÇ ´ë»óÀÌ ¾Æ´Ï´Ù.
+		//íšŒì „ë³€í™˜ëœ ì¢Œí‘œì— ì›ì (parent->centerForChild)ì—ì„œ ì™¼ìª½ ëª¨ì„œë¦¬ ë(renderCopyì— ì“°ì´ëŠ” ì )ìœ¼ë¡œ ë³´ì •
+		//ì›ì ì—ì„œ í…ìŠ¤ì³ ëª¨ì„œë¦¬ ë(renderCopyì— ì“°ì´ëŠ” ì )ê¹Œì§€ì˜ ê¸¸ì´ëŠ” í•­ìƒ ì¼ì •í•´ì•¼ í•˜ê¸°ì— íšŒì „ë³€í™˜ì˜ ëŒ€ìƒì´ ì•„ë‹ˆë‹¤.
 		renderRect.x -= renderCenter.x;
 		renderRect.y -= renderCenter.y;
 		
 		
 	} 
-	else { //ÀÌ°Ç root°¡ ¹Ù²î´Â °æ¿ì¹Û¿¡ ¾ø´Ù.
+	else { //ì´ê±´ rootê°€ ë°”ë€ŒëŠ” ê²½ìš°ë°–ì— ì—†ë‹¤.
 		renderRatioW = ratioW;
 		renderRatioH = ratioH;
 
@@ -131,7 +131,7 @@ void DisplayObject::resetRenderMember()
 
 		renderAngle = angle;
 		
-		//ÁÂÇ¥º¯È­
+		//ì¢Œí‘œë³€í™”
 		renderRect.x = rect.x - renderCenter.x;
 		renderRect.y = rect.y - renderCenter.y;
 		
@@ -154,18 +154,18 @@ void DisplayObject::XY(int x, int y){
 
 void DisplayObject::W(int width){
 	rect.w = width; 
-	ratioW = static_cast<double>(rect.w) / static_cast<double>(textureW); //Àç°è»ê
+	ratioW = static_cast<double>(rect.w) / static_cast<double>(textureW); //ì¬ê³„ì‚°
 	
 }
 void DisplayObject::H(int height){
 	rect.h = height; 
-	ratioH = static_cast<double>(rect.h) / static_cast<double>(textureH); //Àç°è»ê
+	ratioH = static_cast<double>(rect.h) / static_cast<double>(textureH); //ì¬ê³„ì‚°
 }
 void DisplayObject::WH(int width, int height){
 	rect.w = width;	
 	rect.h = height; 
-	ratioW = static_cast<double>(rect.w) / static_cast<double>(textureW); //Àç°è»ê
-	ratioH = static_cast<double>(rect.h) / static_cast<double>(textureH); //Àç°è»ê
+	ratioW = static_cast<double>(rect.w) / static_cast<double>(textureW); //ì¬ê³„ì‚°
+	ratioH = static_cast<double>(rect.h) / static_cast<double>(textureH); //ì¬ê³„ì‚°
 }
 
 void DisplayObject::Angle(double a){ 
@@ -184,7 +184,7 @@ void DisplayObject::Alpha(int alp){
 
 
 #include <cmath>
-// cirAngleÀº È£µµ¹ı ´ÜÀ§ÀÓ.
+// cirAngleì€ í˜¸ë„ë²• ë‹¨ìœ„ì„.
 void rotationTransform(double cirAngle,
 					   int oX, int oY,
 					   int srcX, int srcY,
@@ -195,9 +195,9 @@ void rotationTransform(double cirAngle,
 	dstY = (srcX - oX)*sin(rad) + (srcY - oY)*cos(rad) + oY;
 }
 
-//tdod:ÀÌ È¸Àüº¯È¯Àº ³ªÁß¿¡ TMP¸¦ ½á¼­ ÃÖÀûÈ­½ÃÅ³¼öµµ ÀÖÀ¸³ª..(µÇ³ª? ±Û½ê;..) Áö±İÀº ¾Æ³à
+//tdod:ì´ íšŒì „ë³€í™˜ì€ ë‚˜ì¤‘ì— TMPë¥¼ ì¨ì„œ ìµœì í™”ì‹œí‚¬ìˆ˜ë„ ìˆìœ¼ë‚˜..(ë˜ë‚˜? ê¸€ì„;..) ì§€ê¸ˆì€ ì•„ë…€
 #include <gtest\gtest.h>
-TEST(ÀÛÀºÅ×½ºÆ®, rotationTransform){
+TEST(ì‘ì€í…ŒìŠ¤íŠ¸, rotationTransform){
 	SDL_Point o		= { 20, 50 };
 	SDL_Point src	= { 60, 50 };
 	double angle = 90.0;

@@ -1,10 +1,10 @@
 /*
  *made by KUR
  *
- * »¡¸® µé¾î¿Â ¼ø¼­´ë·Î ·»´õ¸µµÈ´Ù.
+ * ë¹¨ë¦¬ ë“¤ì–´ì˜¨ ìˆœì„œëŒ€ë¡œ ë Œë”ë§ëœë‹¤.
  *
- * displayList¿¡¼­ DisplayObjectÀÇ ÂüÁ¶¸¦ °¡Á®¿Ã ¼ö´Â ÀÖÀ¸³ª(getChild...)
- * ±ÇÀåÇÏÁö ¾Ê´Â´Ù.
+ * displayListì—ì„œ DisplayObjectì˜ ì°¸ì¡°ë¥¼ ê°€ì ¸ì˜¬ ìˆ˜ëŠ” ìˆìœ¼ë‚˜(getChild...)
+ * ê¶Œì¥í•˜ì§€ ì•ŠëŠ”ë‹¤.
  */
 #pragma once
 
@@ -26,15 +26,15 @@ public:
 						   double angle = 0.0,
 						   Uint8 alpha = 255,
 						   Uint8 red = 255, Uint8 green = 255, Uint8 blue = 255);
-	//x,y´Â ºÎ¸ğÀÇ center¸¦ (0,0)ÀÌ¶ó µÎ°í È¯»êÇÑ ÁÂÇ¥
-	//child¸¸ ¹Ş´Â ¹öÀüÀº ÀÚ½ÄÀÇ x,y°¡ ºÎ¸ğ ¾Æ·¡·Î °¡¸é¼­ ±×´ë·Î º¸Á¸µÈ´Ù.
+	//x,yëŠ” ë¶€ëª¨ì˜ centerë¥¼ (0,0)ì´ë¼ ë‘ê³  í™˜ì‚°í•œ ì¢Œí‘œ
+	//childë§Œ ë°›ëŠ” ë²„ì „ì€ ìì‹ì˜ x,yê°€ ë¶€ëª¨ ì•„ë˜ë¡œ ê°€ë©´ì„œ ê·¸ëŒ€ë¡œ ë³´ì¡´ëœë‹¤.
 	void addChild(weak_ptr<DisplayObject> child, int XinParent, int YinParent);
 	void addChild(weak_ptr<DisplayObject> child);
 
-	//TODO:ºü¸¥ Áß°£»ğÀÔ/»èÁ¦/ÂüÁ¶¿ë iterator¸¦ º¸°üÇÏµµ·Ï °³¼±ÇÒ °Í.
-	//¾øÀ¸¸é ¿¡·¯¸¦ ´øÁø´Ù.
+	//TODO:ë¹ ë¥¸ ì¤‘ê°„ì‚½ì…/ì‚­ì œ/ì°¸ì¡°ìš© iteratorë¥¼ ë³´ê´€í•˜ë„ë¡ ê°œì„ í•  ê²ƒ.
+	//ì—†ìœ¼ë©´ ì—ëŸ¬ë¥¼ ë˜ì§„ë‹¤.
 	shared_ptr<DisplayObject> getChildAt(int index);
-	//ÂüÁ¶	
+	//ì°¸ì¡°	
 	shared_ptr<DisplayObject> operator[](int index);
 
 	void renderCopy() = 0;
@@ -49,16 +49,16 @@ public:
 	int index;
 	int listSize;
 
-	//menu == 0: catch¹®À» À§ÇÑ »ı¼ºÀÚ
+	//menu == 0: catchë¬¸ì„ ìœ„í•œ ìƒì„±ì
 	DisplayObjectContainerError(){}
 	
-	//menu == 1: listÀÇ ÀÎµ¦½º ÃÊ°ú
+	//menu == 1: listì˜ ì¸ë±ìŠ¤ ì´ˆê³¼
 	DisplayObjectContainerError(int index, int listSize)
 		:Error(true, 1), index(index), listSize(listSize)
 	{}
 
-	//menu == 2: weak_ptrÀÌ °¡¸®Å°´ø °´Ã¼°¡ ÇØÁ¦µÇ¾ú°Å³ª ¾øÀ½.
-	//index == -1ÀÌ¸é addChild(child)¿¡¼­ nullptrÀ» °¡¸®Å°´Â child¸¦ ³ÖÀº °æ¿ì.
+	//menu == 2: weak_ptrì´ ê°€ë¦¬í‚¤ë˜ ê°ì²´ê°€ í•´ì œë˜ì—ˆê±°ë‚˜ ì—†ìŒ.
+	//index == -1ì´ë©´ addChild(child)ì—ì„œ nullptrì„ ê°€ë¦¬í‚¤ëŠ” childë¥¼ ë„£ì€ ê²½ìš°.
 	DisplayObjectContainerError(int index)
 		: Error(true, 2), index(index)
 	{}
@@ -66,14 +66,14 @@ public:
 	void printErrorReason() override{
 		switch(menu) {
 		case 1:
-			printf("getChildAt(%d)¿¡·¯: ÀÎµ¦½º[%d]°¡ ¸®½ºÆ® Çã¿ë¹üÀ§ [0] ~ [%d]¸¦ ¹ş¾î³µ½À´Ï´Ù.", index, index, listSize - 1);
+			printf("getChildAt(%d)ì—ëŸ¬: ì¸ë±ìŠ¤[%d]ê°€ ë¦¬ìŠ¤íŠ¸ í—ˆìš©ë²”ìœ„ [0] ~ [%d]ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.", index, index, listSize - 1);
 			break;
 
 		case 2:
 			if(index == -1) {
-				printf("addChild(child)ÀÇ child°¡ °¡¸®Å°´Â °´Ã¼°¡ ÇØÁ¦µÇ¾ú°Å³ª ¾ø½À´Ï´Ù.");
+				printf("addChild(child)ì˜ childê°€ ê°€ë¦¬í‚¤ëŠ” ê°ì²´ê°€ í•´ì œë˜ì—ˆê±°ë‚˜ ì—†ìŠµë‹ˆë‹¤.");
 			} else {
-				printf("ÀÎµ¦½º[%d]ÀÇ weak_ptrÀÌ °¡¸®Å°´ø °´Ã¼°¡ ÇØÁ¦µÇ¾ú°Å³ª displayList¿¡¼­ Á¦°ÅµÇ¾ú½À´Ï´Ù.", index); 
+				printf("ì¸ë±ìŠ¤[%d]ì˜ weak_ptrì´ ê°€ë¦¬í‚¤ë˜ ê°ì²´ê°€ í•´ì œë˜ì—ˆê±°ë‚˜ displayListì—ì„œ ì œê±°ë˜ì—ˆìŠµë‹ˆë‹¤.", index); 
 			}
 			break;
 		}

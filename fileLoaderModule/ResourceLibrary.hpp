@@ -1,5 +1,5 @@
-//TODO:¸±¸®Áî¿ëÀÇ °æ¿ì vector<string> paths¸¦ ÁÖÀÔÇÏÁö ¾Ê¾Ò´Ù¸é °æ°í¸¦ ÇØÁà¾ß ÇÑ´Ù.
-//±×°Ç RES_LIB¿¡¼­ LoadedData¸¦ ²¨³¾ ¾Ë ¼ö ÀÖÀ»°ÍÀÌ´Ù.
+//TODO:ë¦´ë¦¬ì¦ˆìš©ì˜ ê²½ìš° vector<string> pathsë¥¼ ì£¼ì…í•˜ì§€ ì•Šì•˜ë‹¤ë©´ ê²½ê³ ë¥¼ í•´ì¤˜ì•¼ í•œë‹¤.
+//ê·¸ê±´ RES_LIBì—ì„œ LoadedDataë¥¼ êº¼ë‚¼ ì•Œ ìˆ˜ ìˆì„ê²ƒì´ë‹¤.
 #pragma once
 
 #include <iostream>
@@ -18,24 +18,24 @@ class ResLibError: public Error {
 public:
 	string hashStr;
 
-	//menu == 0: LoadedDataÇü½ÄÀ¸·Î ²¨³»·ÁÇÑ °æ¿ì, catch¹® »ç¿ë
+	//menu == 0: LoadedDataí˜•ì‹ìœ¼ë¡œ êº¼ë‚´ë ¤í•œ ê²½ìš°, catchë¬¸ ì‚¬ìš©
 	ResLibError()
 		: Error(false)
 	{}
-	//menu == 1: hash_key°¡ resourceMap¿¡ ¾ø´Â °æ¿ì
+	//menu == 1: hash_keyê°€ resourceMapì— ì—†ëŠ” ê²½ìš°
 	ResLibError(const string& hashStr)
-		: Error(false,1), hashStr(hashStr)			//todo:³ªÁß¿¡ isCritical == true
+		: Error(false,1), hashStr(hashStr)			//todo:ë‚˜ì¤‘ì— isCritical == true
 	{}
 
 	void printErrorReason() override{
 		switch(menu) {
 		case 0:
-			std::cout << "RES_LIB¿¡¼­ shared_ptr<LoadedData>Çü½ÄÀÇ ÂüÁ¶¸¦ ¾òÀ¸·Á Çß½À´Ï´Ù." << '\n'
-				<< "LoadedData¸¦ »ó¼ÓÇÏ´Â concrete class¸¸ Çã¿ëµË´Ï´Ù." << '\n';
+			std::cout << "RES_LIBì—ì„œ shared_ptr<LoadedData>í˜•ì‹ì˜ ì°¸ì¡°ë¥¼ ì–»ìœ¼ë ¤ í–ˆìŠµë‹ˆë‹¤." << '\n'
+				<< "LoadedDataë¥¼ ìƒì†í•˜ëŠ” concrete classë§Œ í—ˆìš©ë©ë‹ˆë‹¤." << '\n';
 			break;
 		case 1:
-			std::cout << "RES_LIB¿¡ ÇØ½¬ Å° \"" << hashStr
-				<< "\"°ú ÀÏÄ¡ÇÏ´Â LoadedData°´Ã¼°¡ ¾ø½À´Ï´Ù." << '\n';
+			std::cout << "RES_LIBì— í•´ì‰¬ í‚¤ \"" << hashStr
+				<< "\"ê³¼ ì¼ì¹˜í•˜ëŠ” LoadedDataê°ì²´ê°€ ì—†ìŠµë‹ˆë‹¤." << '\n';
 			break;
 		}
 	}
@@ -49,10 +49,10 @@ private:
 	unordered_map<string, shared_ptr<LoadedData>> resourceMap;
 	
 public:
-	//ÇÒ´ç ½ÇÆĞ½Ã false TODO: throw¸¦ ÀÌ¿ëÇÏµµ·Ï ¹Ù²Ù±â.
+	//í• ë‹¹ ì‹¤íŒ¨ì‹œ false TODO: throwë¥¼ ì´ìš©í•˜ë„ë¡ ë°”ê¾¸ê¸°.
 	bool insert(const string& key, shared_ptr<LoadedData> item);
 
-	//Data¸¦ ÀÌ¿ëÇØ ¹İÈ¯typeÀ» ¾ò°í, HashStrÀ» ÀÌ¿ëÇØ ÇØ½¬key¸¦ ¾ò´Â´Ù.
+	//Dataë¥¼ ì´ìš©í•´ ë°˜í™˜typeì„ ì–»ê³ , HashStrì„ ì´ìš©í•´ í•´ì‰¬keyë¥¼ ì–»ëŠ”ë‹¤.
 	template<typename Data>
 	shared_ptr<Data> operator[](const Data& keyObj){
 		auto result = resourceMap.find(keyObj.HashStr());

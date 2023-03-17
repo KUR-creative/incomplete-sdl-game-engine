@@ -41,8 +41,8 @@ vector<string>& IniSerialBuffer::getFilePathVector(const char* dir){
 
 		if(fileinfo.attrib & _A_SUBDIR) { // Use bitmask to see if this is a directory
 			auto subDir = getFilePathVector(nowPath->c_str());
-			fileStrs->insert(fileStrs->end(), subDir.begin(), subDir.end()); //¹ÝÈ¯µÈ °ÍÀ» µÚ¿¡ ºÙÀÎ´Ù!
-			delete nowPath; //Æú´õÀÇ °æ·ÎÀÌ±â¿¡ ÇÊ¿ä¾øÀ½
+			fileStrs->insert(fileStrs->end(), subDir.begin(), subDir.end()); //ë°˜í™˜ëœ ê²ƒì„ ë’¤ì— ë¶™ì¸ë‹¤!
+			delete nowPath; //í´ë”ì˜ ê²½ë¡œì´ê¸°ì— í•„ìš”ì—†ìŒ
 		} else {
 			fileStrs->push_back(nowPath->c_str());
 		}

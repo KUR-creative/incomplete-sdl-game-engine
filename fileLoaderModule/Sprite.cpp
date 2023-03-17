@@ -13,6 +13,6 @@ Sprite::Sprite(shared_ptr<Png> srcPng,
 
 void Sprite::renderCopy()
 {
-	//³ªÁß¿¡ Àç±Í È£Ãâ·Î ¹Ù²ã¾ßÇÑ´Ù.
+	//ë‚˜ì¤‘ì— ì¬ê·€ í˜¸ì¶œë¡œ ë°”ê¿”ì•¼í•œë‹¤.
 	DisplayObjectContainer::renderCopy();
 }

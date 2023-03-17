@@ -6,7 +6,7 @@
 #include <io.h>
 #include <stdio.h>
 #include <cstring>
-#include <direct.h>	//windows Á¾¼Ó, ±×·±µ¥ ¾Æ·¡ ÀÖ´Â ÇÔ¼ö´Â POSIXÀÎ µí?
+#include <direct.h>	//windows ì¢…ì†, ê·¸ëŸ°ë° ì•„ë˜ ìˆëŠ” í•¨ìˆ˜ëŠ” POSIXì¸ ë“¯?
 
 #include <boost\archive\binary_iarchive.hpp>
 #include <boost\archive\binary_oarchive.hpp>
@@ -14,8 +14,8 @@
 using std::string;
 using std::vector;
 
-//ÀÌ°Å´Â ¸±¸®Áî¿ë¿¡´Â ´ç¿¬È÷ ¾ø´ÂºÎºĞÀÌ´Ù..
-//°³¹ßÀÚ¿ë ¸®¼Ò½º·Î´õ¿¡µµ µé¾î°£´Ù.
+//ì´ê±°ëŠ” ë¦´ë¦¬ì¦ˆìš©ì—ëŠ” ë‹¹ì—°íˆ ì—†ëŠ”ë¶€ë¶„ì´ë‹¤..
+//ê°œë°œììš© ë¦¬ì†ŒìŠ¤ë¡œë”ì—ë„ ë“¤ì–´ê°„ë‹¤.
 class IniSerialBuffer {
 private:
 	friend class boost::serialization::access;
@@ -28,7 +28,7 @@ private:
 
 	//based on legacybass's simple code
 	//(http://stackoverflow.com/questions/6133647/how-do-i-list-subdirectories-in-windows-using-c)
-	// dir ÇÏºÎ µğ·ºÅä¸® Æú´õ¿Í ÆÄÀÏ ÀÌ¸§µéÀ» Ãâ·ÂÇÑ´Ù.
+	// dir í•˜ë¶€ ë””ë ‰í† ë¦¬ í´ë”ì™€ íŒŒì¼ ì´ë¦„ë“¤ì„ ì¶œë ¥í•œë‹¤.
 	vector<string>& getFilePathVector(const char* dir);
 
 public:

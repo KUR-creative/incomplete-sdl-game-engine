@@ -1,26 +1,26 @@
 /*made by KUR
  *
- *½ºÆå
- * ¸Å°³º¯¼ö°¡ ÀÖ´Â »ý¼ºÀÚ¸¦ °¡Áø Å¬·¡½ºµµ ½Ì±ÛÅæ Àû¿ë °¡´É
- * ´Ü ÇÑ¹øÀÇ »ý¼ºÀ» º¸ÀåÇÏ¸ç ¹Ýµå½Ã ¼öµ¿À¸·Î ÇØ¾ß¸¸ ÇÑ´Ù.
- * »èÁ¦´Â ¼öµ¿/ÀÚµ¿ ¸ðµÎ °¡´É
- * º¹»ç »ý¼ºÀº Á¦ÇÑÇÑ´Ù.
- * »ý¼ºÀÚ¸¦ ÅëÇÑ »ý¼º Á¦ÇÑÀº ¼­ºêÅ¬·¡½º¿¡¼­ ´ã´çÇÑ´Ù.
+ *ìŠ¤íŽ™
+ * ë§¤ê°œë³€ìˆ˜ê°€ ìžˆëŠ” ìƒì„±ìžë¥¼ ê°€ì§„ í´ëž˜ìŠ¤ë„ ì‹±ê¸€í†¤ ì ìš© ê°€ëŠ¥
+ * ë‹¨ í•œë²ˆì˜ ìƒì„±ì„ ë³´ìž¥í•˜ë©° ë°˜ë“œì‹œ ìˆ˜ë™ìœ¼ë¡œ í•´ì•¼ë§Œ í•œë‹¤.
+ * ì‚­ì œëŠ” ìˆ˜ë™/ìžë™ ëª¨ë‘ ê°€ëŠ¥
+ * ë³µì‚¬ ìƒì„±ì€ ì œí•œí•œë‹¤.
+ * ìƒì„±ìžë¥¼ í†µí•œ ìƒì„± ì œí•œì€ ì„œë¸Œí´ëž˜ìŠ¤ì—ì„œ ë‹´ë‹¹í•œë‹¤.
  *
  *
- *½Ì±ÛÅæÀ» Àû¿ëÇÏ·Á¸é
- * 1. ¼­ºêÅ¬·¡½º°¡ Singleton<¼­ºêÅ¬·¡½ºÀÌ¸§>À» public »ó¼ÓÇÏ°ÔÇÑ´Ù.
+ *ì‹±ê¸€í†¤ì„ ì ìš©í•˜ë ¤ë©´
+ * 1. ì„œë¸Œí´ëž˜ìŠ¤ê°€ Singleton<ì„œë¸Œí´ëž˜ìŠ¤ì´ë¦„>ì„ public ìƒì†í•˜ê²Œí•œë‹¤.
  * 
- *»ý¼ºÀÚ¸¦ ÅëÇÑ »ý¼ºÀ» Á¦ÇÑÇÏ·Á¸é
- * 1. ¼­ºêÅ¬·¡½º¿¡¼­ »ý¼ºÀÚ¸¦ privateÀ¸·Î ¸¸µç´Ù.
- * 2. ¼­ºêÅ¬·¡½º¿¡ friend class Singleton<¼­ºêÅ¬·¡½ºÀÌ¸§>;À» Àû¾îÁØ´Ù
+ *ìƒì„±ìžë¥¼ í†µí•œ ìƒì„±ì„ ì œí•œí•˜ë ¤ë©´
+ * 1. ì„œë¸Œí´ëž˜ìŠ¤ì—ì„œ ìƒì„±ìžë¥¼ privateìœ¼ë¡œ ë§Œë“ ë‹¤.
+ * 2. ì„œë¸Œí´ëž˜ìŠ¤ì— friend class Singleton<ì„œë¸Œí´ëž˜ìŠ¤ì´ë¦„>;ì„ ì ì–´ì¤€ë‹¤
  *
- *¼­ºêÅ¬·¡½ºÀÇ »ý¼ºÀÚ°¡ ¸Å°³º¯¼ö¸¦ °¡Áú ¶§
- * 1. ¼­ºêÅ¬·¡½º::createInstance(¼­ºê,Å¬·¡½ºÀÇ,¸Å°³,º¯¼ö) ÀÌ·¸°Ô È£Ãâ
+ *ì„œë¸Œí´ëž˜ìŠ¤ì˜ ìƒì„±ìžê°€ ë§¤ê°œë³€ìˆ˜ë¥¼ ê°€ì§ˆ ë•Œ
+ * 1. ì„œë¸Œí´ëž˜ìŠ¤::createInstance(ì„œë¸Œ,í´ëž˜ìŠ¤ì˜,ë§¤ê°œ,ë³€ìˆ˜) ì´ë ‡ê²Œ í˜¸ì¶œ
  *
  *
- *ÇÁ·Î±×·¡¹Ö °¶·¯¸® Á¦Æä´Ô(http://gallog.dcinside.com/zepeh)ÀÇ ¼Ò½º¸¦ Âü°íÇß½À´Ï´Ù. 
- *°¨»çÇÕ´Ï´Ù!
+ *í”„ë¡œê·¸ëž˜ë° ê°¤ëŸ¬ë¦¬ ì œíŽ˜ë‹˜(http://gallog.dcinside.com/zepeh)ì˜ ì†ŒìŠ¤ë¥¼ ì°¸ê³ í–ˆìŠµë‹ˆë‹¤. 
+ *ê°ì‚¬í•©ë‹ˆë‹¤!
  */
 #pragma once
 
@@ -37,12 +37,12 @@ public:
 		if(instance == nullptr) {				
 			instance.reset(new T( std::forward<Args>(args)... ));
 		} else {
-			std::_DEBUG_ERROR("½Ì±ÛÅæ °´Ã¼¸¦ Áßº¹»ý¼ºÇÏ¿´´Ù. ºÒÇÊ¿äÇÑ createInstance È£ÃâÀ» »èÁ¦ÇÏ¶ó. ");
+			std::_DEBUG_ERROR("ì‹±ê¸€í†¤ ê°ì²´ë¥¼ ì¤‘ë³µìƒì„±í•˜ì˜€ë‹¤. ë¶ˆí•„ìš”í•œ createInstance í˜¸ì¶œì„ ì‚­ì œí•˜ë¼. ");
 		}
 	}
 
 	static T& Instance(){
-		assert(instance != nullptr  &&  "½Ì±ÛÅæ °´Ã¼°¡ »ý¼ºµÇ±â Àü¿¡ ÂüÁ¶Çß´Ù.½Ì±ÛÅæ °´Ã¼ÀÇ ÇÔ¼ö È£Ãâ ¼ø¼­¸¦ ¹Ù²ã¶ó");
+		assert(instance != nullptr  &&  "ì‹±ê¸€í†¤ ê°ì²´ê°€ ìƒì„±ë˜ê¸° ì „ì— ì°¸ì¡°í–ˆë‹¤.ì‹±ê¸€í†¤ ê°ì²´ì˜ í•¨ìˆ˜ í˜¸ì¶œ ìˆœì„œë¥¼ ë°”ê¿”ë¼");
 		return *instance;
 	}
 

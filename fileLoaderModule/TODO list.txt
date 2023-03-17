@@ -1,19 +1,19 @@
 ResourceLoadCaller
-	È®ÀåÀÚ°¡ ¾ø´Â ÆÄÀÏÀÇ °æ¿ì, ÀÌ¸§¿¡ µû¶ó ·ÎµåÇÏ´Â µ¶Æ¯ÇÑ ¹æ½ÄÀ» ¸¸µé¾î ÁÙ¼öµµ ÀÖ´Ù...
-	ÇÏÁö¸¸ txtÆÄÀÏÀÇ °æ¿ì, 
-		¸ÖÆ¼¹ÙÀÌÆ®(char->string)·Î ¹ÞÀ» ¼öµµ ÀÖ°í
-		À¯´ÏÄÚµå(wchar->wstring)·Î ¹ÞÀ» ¼öµµ ÀÖ´Ù.
-	ÀÌ·± 1:´Ù »óÈ²Àº... ¾î¶»°ÔÇÏÁö?
-	Æ¯È÷ txtÆÄÀÏÀÇ °æ¿ì ¾µµ¥¾ø´Â º¯È¯°úÁ¤À» °®´Â°Ô ´õ ±ÍÂúÀ½.
-	1)¾Æ¿¹ ´Ù¸¥ È®ÀåÀÚ¸¦ ÁØ´Ù°Å³ª.wtxt
-	2)1:´Ù °ü°è¸¦ Çã¿ëÇÏ°Å³ª.
+	í™•ìž¥ìžê°€ ì—†ëŠ” íŒŒì¼ì˜ ê²½ìš°, ì´ë¦„ì— ë”°ë¼ ë¡œë“œí•˜ëŠ” ë…íŠ¹í•œ ë°©ì‹ì„ ë§Œë“¤ì–´ ì¤„ìˆ˜ë„ ìžˆë‹¤...
+	í•˜ì§€ë§Œ txtíŒŒì¼ì˜ ê²½ìš°, 
+		ë©€í‹°ë°”ì´íŠ¸(char->string)ë¡œ ë°›ì„ ìˆ˜ë„ ìžˆê³ 
+		ìœ ë‹ˆì½”ë“œ(wchar->wstring)ë¡œ ë°›ì„ ìˆ˜ë„ ìžˆë‹¤.
+	ì´ëŸ° 1:ë‹¤ ìƒí™©ì€... ì–´ë–»ê²Œí•˜ì§€?
+	íŠ¹ížˆ txtíŒŒì¼ì˜ ê²½ìš° ì“¸ë°ì—†ëŠ” ë³€í™˜ê³¼ì •ì„ ê°–ëŠ”ê²Œ ë” ê·€ì°®ìŒ.
+	1)ì•„ì˜ˆ ë‹¤ë¥¸ í™•ìž¥ìžë¥¼ ì¤€ë‹¤ê±°ë‚˜.wtxt
+	2)1:ë‹¤ ê´€ê³„ë¥¼ í—ˆìš©í•˜ê±°ë‚˜.
 
-	¿©Æ° extensionÀÌ¶ó´Â º¯¼ö¸íºÎÅÍ ¹Ù²ã¾ßÇÒÁöµµ..
+	ì—¬íŠ¼ extensionì´ë¼ëŠ” ë³€ìˆ˜ëª…ë¶€í„° ë°”ê¿”ì•¼í• ì§€ë„..
 
-¸ðµç »ý¼ºÀÚµé¿¡ explicit´Þ±â
+ëª¨ë“  ìƒì„±ìžë“¤ì— explicitë‹¬ê¸°
 
-for ¹®¿¡¼­ ++i¿Í i++Ã³¸®ÇÏ±â
+for ë¬¸ì—ì„œ ++iì™€ i++ì²˜ë¦¬í•˜ê¸°
 
-DisplayObjectContainer°¡ ¾î¶² DO¸¦ °øÀ¯ÇÏ´Â ¹®Á¦
-->°øÀ¯ ºÒ°¡´ÉÇÏ°Ô ÇÒ °Í.
-->addChild½Ã¿¡ ÀÌ¹Ì ºÎ¸ð°¡ ÀÖ´Ù¸é ±× ºÎ¸ð¿ÍÀÇ ¿¬°áÀ» ²÷¾î¹ö·Á¾ßÇÔ.
+DisplayObjectContainerê°€ ì–´ë–¤ DOë¥¼ ê³µìœ í•˜ëŠ” ë¬¸ì œ
+->ê³µìœ  ë¶ˆê°€ëŠ¥í•˜ê²Œ í•  ê²ƒ.
+->addChildì‹œì— ì´ë¯¸ ë¶€ëª¨ê°€ ìžˆë‹¤ë©´ ê·¸ ë¶€ëª¨ì™€ì˜ ì—°ê²°ì„ ëŠì–´ë²„ë ¤ì•¼í•¨.

@@ -2,7 +2,7 @@
 #include "Utilities.hpp"
 #include <SDL_image.h>
 
-//ÆÄÀÏ ¿­±â ½ÇÆĞ½Ã nullptr ¹İÈ¯ÇØ¾ßÇÔ.
+//íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨ì‹œ nullptr ë°˜í™˜í•´ì•¼í•¨.
 unique_ptr<LoadedData> PngLoader::load(){
 	const char* pngPath = getFilePath().c_str();
 
@@ -10,7 +10,7 @@ unique_ptr<LoadedData> PngLoader::load(){
 	if(!texture) { 
 		logSDLError("PngLoader::load(){ IMG_LoadTexture }"); 
 		if(isPathStrEmpty()) {
-			std::cout << "°æ·Î ¹®ÀÚ¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù. °æ·Î¾ø´Â PngLoader»ı¼ºÀÌÈÄ °æ·Î¸¦ ³ÖÁö ¾Ê°í ÆÄÀÏÀ» ·ÎµåÇßÀ» °¡´É¼ºÀÌ Å®´Ï´Ù."<< '\n';
+			std::cout << "ê²½ë¡œ ë¬¸ìì—´ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤. ê²½ë¡œì—†ëŠ” PngLoaderìƒì„±ì´í›„ ê²½ë¡œë¥¼ ë„£ì§€ ì•Šê³  íŒŒì¼ì„ ë¡œë“œí–ˆì„ ê°€ëŠ¥ì„±ì´ í½ë‹ˆë‹¤."<< '\n';
 		}
 		return nullptr;
 	}
@@ -24,27 +24,27 @@ unique_ptr<LoadedData> PngLoader::load(){
 
 
 #include <gtest\gtest.h>
-//´ÜÀ§ Å×½ºÆ®¿ë À©µµ¿ì,·»´õ·¯
+//ë‹¨ìœ„ í…ŒìŠ¤íŠ¸ìš© ìœˆë„ìš°,ë Œë”ëŸ¬
 SDL_Window* win = SDL_CreateWindow("PNGLoader unit test", 50, 50, 400, 200, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-TEST(´ÜÀ§Å×½ºÆ®, PngLoader){
+TEST(ë‹¨ìœ„í…ŒìŠ¤íŠ¸, PngLoader){
 	SDL_Renderer* ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 	//TEST things...
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\sad frog.png");
 
-	//PngLoader¸¦ °ÅÄ¡Áö ¾ÊÀº ÅØ½ºÃÄ(expected) ·Îµå
+	//PngLoaderë¥¼ ê±°ì¹˜ì§€ ì•Šì€ í…ìŠ¤ì³(expected) ë¡œë“œ
 	shared_ptr<SDL_Renderer> pren;
 	pren.reset(ren, &SDL_DestroyRenderer);
 	SDL_Texture* tex1 = IMG_LoadTexture(ren, path.c_str());
 	if(tex1) {
-		//PngLoader¸¦ ÀÌ¿ëÇÑ ÅØ½ºÃÄ(actual) ·Îµå
+		//PngLoaderë¥¼ ì´ìš©í•œ í…ìŠ¤ì³(actual) ë¡œë“œ
 		PngLoader pngLoader(pren, path);
 		FileLoader* fLoader = &pngLoader;
 		unique_ptr<LoadedData> png(fLoader->load());
 
-		//Äõ¸® Å×½ºÆ®¸¦ À§ÇÑ ÅØ½ºÃÄ ÃßÃâ(»èÁ¦µÉ Å×½ºÆ®)
+		//ì¿¼ë¦¬ í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ í…ìŠ¤ì³ ì¶”ì¶œ(ì‚­ì œë  í…ŒìŠ¤íŠ¸)
 		SDL_Texture* tex2 = static_cast<Png*>(png.get())->Texture().get();
 
 		int w1 = 0, h1 = 0;
@@ -59,7 +59,7 @@ TEST(´ÜÀ§Å×½ºÆ®, PngLoader){
 		ASSERT_EQ(w1, w2);
 		ASSERT_EQ(h1, h2);
 
-		//´«À¸·Î º¸°í ÆÇ´ÜÇÏ½Ã¶ó...
+		//ëˆˆìœ¼ë¡œ ë³´ê³  íŒë‹¨í•˜ì‹œë¼...
 		SDL_Rect dst1;	dst1.x = 0;	dst1.y = 0;	dst1.w = w1;	dst1.h = h1;
 		SDL_Rect dst2;	dst2.x = 300;	dst2.y = 300;	dst2.w = w2;	dst2.h = h2;
 
@@ -69,20 +69,20 @@ TEST(´ÜÀ§Å×½ºÆ®, PngLoader){
 		SDL_Delay(200);
 		SDL_RenderPresent(ren);
 		SDL_Delay(200);
-	} else { //ÀÌ·¸°Ô ¾²´Â °Ç ¹º°¡ ¾Æ´Ñ°Å °°Àºµ¥...?
+	} else { //ì´ë ‡ê²Œ ì“°ëŠ” ê±´ ë­”ê°€ ì•„ë‹Œê±° ê°™ì€ë°...?
 		logSDLError("LoadTexture_tex1");
 		ASSERT_FALSE(tex1);
 	}
 }
 
-TEST(´ÜÀ§Å×½ºÆ®, °æ·Î¾ø´ÂPngLoader»ı¼º){
+TEST(ë‹¨ìœ„í…ŒìŠ¤íŠ¸, ê²½ë¡œì—†ëŠ”PngLoaderìƒì„±){
 	SDL_Renderer* ren2 = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	shared_ptr<SDL_Renderer> pren;
 	pren.reset(ren2, &SDL_DestroyRenderer);
 	PngLoader pngLoader(pren);
 	unique_ptr<LoadedData> testPng = pngLoader.load();
 	ASSERT_FALSE(testPng.get());
-	//°æ·Î ³Ö±â
+	//ê²½ë¡œ ë„£ê¸°
 	const std::string basePath = SDL_GetBasePath();
 	string path(basePath + "resource\\sad frog.png");
 	pngLoader.setPathStr(path);

@@ -25,7 +25,7 @@ Projector::Projector(const string& windowName,
 
 void Projector::renderPresent() 
 {
-	//SDL_RenderClear(renderer.get());	//¿ä°É·Î ÀüÀÇ °ÍÀ» Áö¿ì°í
-	// root.renderCopy();				//¿©±â¼­ È­¸éÀ» ¸ğµÎ ¾÷µ¥ÀÌÆ®ÇÏ°í 
-	SDL_RenderPresent(renderer.get());	//º¸¿©µÎ¸³´Ï´Ù.
+	//SDL_RenderClear(renderer.get());	//ìš”ê±¸ë¡œ ì „ì˜ ê²ƒì„ ì§€ìš°ê³ 
+	// root.renderCopy();				//ì—¬ê¸°ì„œ í™”ë©´ì„ ëª¨ë‘ ì—…ë°ì´íŠ¸í•˜ê³  
+	SDL_RenderPresent(renderer.get());	//ë³´ì—¬ë‘ë¦½ë‹ˆë‹¤.
 }

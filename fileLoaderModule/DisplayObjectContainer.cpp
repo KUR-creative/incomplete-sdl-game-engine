@@ -20,12 +20,12 @@ void DisplayObjectContainer::renderCopy()
 		shared_ptr<DisplayObject> displayObj = item.lock();
 		if(displayObj != nullptr) {
 			displayObj->renderCopy();
-		}//nullptrÀÏ ¶§´Â ¾îÂ¿°Ü? ·»´õ¸µ ¾ÈÇÏ´Â°ÅÁö ¹¹
+		}//nullptrì¼ ë•ŒëŠ” ì–´ì©”ê²¨? ë Œë”ë§ ì•ˆí•˜ëŠ”ê±°ì§€ ë­
 	}
 }
 
-// push_backÀÌ ¾Æ´Ñ ´Ù¸¥ ¹æ¹ıÀ¸·Î Á»´õ È¿À²ÀûÀÌ°Ô ÇÒ ¼ö ÀÖ°ÚÁö.
-// ¸Ş¸ğ¸®¸¦ ¿ÕÃ¢ ÇÒ´çÇØ µĞ ´ÙÀ½¿¡ °ª¸¸ ³Ö´Â°Å¾ß. ±×·¯³ª ±×°Ç ³ªÁß¿¡..(ÀÌ¸¥ ÃÖÀûÈ­´Â ¾Ç)
+// push_backì´ ì•„ë‹Œ ë‹¤ë¥¸ ë°©ë²•ìœ¼ë¡œ ì¢€ë” íš¨ìœ¨ì ì´ê²Œ í•  ìˆ˜ ìˆê² ì§€.
+// ë©”ëª¨ë¦¬ë¥¼ ì™•ì°½ í• ë‹¹í•´ ë‘” ë‹¤ìŒì— ê°’ë§Œ ë„£ëŠ”ê±°ì•¼. ê·¸ëŸ¬ë‚˜ ê·¸ê±´ ë‚˜ì¤‘ì—..(ì´ë¥¸ ìµœì í™”ëŠ” ì•…)
 void DisplayObjectContainer::addChild(weak_ptr<DisplayObject> child, int XinParent, int YinParent)
 {
 	auto pChild = child.lock();
@@ -74,8 +74,8 @@ shared_ptr<DisplayObject> DisplayObjectContainer::getChildAt(int index)
 	}	
 }
 
-//iterator¸¦ ¸â¹ö·Î º¸°üÇÏµµ·Ï °³¼±
-//ÀÌ°Å getChildAtÀÌ¶û ¿ÏÀü ¶È°°À½ ¤»¤»¤»
+//iteratorë¥¼ ë©¤ë²„ë¡œ ë³´ê´€í•˜ë„ë¡ ê°œì„ 
+//ì´ê±° getChildAtì´ë‘ ì™„ì „ ë˜‘ê°™ìŒ ã…‹ã…‹ã…‹
 shared_ptr<DisplayObject> DisplayObjectContainer::operator[](int index)
 {
 	if(index < displayList.size()) {
